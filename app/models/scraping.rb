@@ -13,4 +13,12 @@ class Scraping < ApplicationRecord
           scraping.save
         end
     end
+
+    def self.search(search_word)
+      if search_word
+        Scraping.where(['name LIKE ?', "%#{search_word}%"])
+      else
+        Scraping.all
+      end
+    end
 end

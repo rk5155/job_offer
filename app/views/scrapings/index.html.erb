@@ -1,6 +1,12 @@
 <h1>Scrapings#index</h1>
 
-<% @scraping.each do |data| %>
-    <p><%= data.name %></p>
+<%= form_tag(scrapings_search_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag '検索', :name => nil %>
 <% end %>
+
+
+ <% @scraping.each do |data| %>
+    <p><%= data.name %></p>
+<% end %> 
 
