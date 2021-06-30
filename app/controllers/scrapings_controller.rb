@@ -4,6 +4,7 @@ class ScrapingsController < ApplicationController
   end
 
   def search
-    @posts = Scraping.search(params[:search])
+    @posts = Scraping.search(params[:title], params[:status])
+    
   end
 end

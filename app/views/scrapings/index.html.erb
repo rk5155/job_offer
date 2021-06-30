@@ -1,8 +1,17 @@
 <h1>Scrapings#index</h1>
 
 <%= form_tag(scrapings_search_path,:method => 'get') do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag '検索', :name => nil %>
+  
+  
+
+
+  <%= label_tag :タイトル %>
+  <%= text_field_tag :title %>
+ 
+  <%= label_tag :雇用形態 %>
+  <%= select_tag 'status', options_for_select({正社員: "正社員", 契約社員: "契約社員", 業務委託: "業務委託", アルバイト: "アルバイト"}, ""), include_blank: true %>
+
+  <%= submit_tag '検索' %>
 <% end %>
 
 

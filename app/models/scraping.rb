@@ -34,11 +34,20 @@ class Scraping < ApplicationRecord
         end
     end
 
-    def self.search(search_word)
-      if search_word
-        Scraping.where(['name LIKE ?', "%#{search_word}%"])
+    def self.search(title, status)
+      
+      if status != ""
+        if status
+          Scraping.where(['status LIKE ?', "%#{status}%"])
+        else
+          Scraping.all
+        end
       else
-        Scraping.all
+        if title
+          Scraping.where(['name LIKE ?', "%#{title}%"])
+        else
+          Scraping.all
+        end
       end
     end
 end
