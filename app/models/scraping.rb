@@ -35,19 +35,18 @@ class Scraping < ApplicationRecord
     end
 
     def self.search(title, status)
-      
-      if status != ""
-        if status
-          Scraping.where(['status LIKE ?', "%#{status}%"])
-        else
-          Scraping.all
-        end
+      # 全項目空欄で検索を押した時
+      if status == "" && title == ""
+        Scraping.all
+      # titleのみ空欄
+      elsif status == "" && title != ""
+        Scraping.where(['name LIKE ?', "%#{title}%"])
+      # 雇用形態のみ空欄
+      elsif status != "" && title == ""
+        Scraping.where(['status LIKE ?', "%#{status}%"])
+      # 全項目が入力されている
       else
-        if title
-          Scraping.where(['name LIKE ?', "%#{title}%"])
-        else
-          Scraping.all
-        end
+        Scraping.where(['name LIKE ?', "%#{title}%"]).where(['status LIKE ?', "%#{status}%"])
       end
     end
 end
