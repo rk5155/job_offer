@@ -6,15 +6,46 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :名前 %>
+      <%= f.label :氏 %>
       <%= f.text_field :name %>
 
-      <%= f.label :アドレス %>
-      <%= f.email_field :email %>
-
+      <%= f.label :名 %>
+      <%= f.text_field :name2 %><br><br>
       
+      <%= f.label :セイ %>
+      <%= f.text_field :furigana %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.label :メイ %>
+      <%= f.text_field :furigana2 %><br><br>
+
+      <%= f.label :生年月日 %>
+      <%= f.text_field :year %>年
+      <%= f.text_field :month %>月
+      <%= f.text_field :day %>日<br><br>
+
+      <%= f.label :性別 %>
+      <%= f.radio_button :sex, "男" %> 男 
+      <%= f.radio_button :sex, "女" %> 女<br><br>
+
+      <%= f.label :現在所 %><br><br>
+
+      <%= f.label :郵便番号 %>
+      <%= f.number_field :postal_code %> 
+      
+      <%= f.label :都道府県 %>
+      <%= f.text_field :prefectures %> 
+
+      <%= f.label :市町村 %>
+      <%= f.text_field :municipality %> 
+
+      <%= f.label :以降の住所 %>
+      <%= f.text_field :address %> <br><br>
+
+
+      <%= f.label :アドレス %>
+      <%= f.email_field :email %><br><br>
+
+      <%= f.submit "登録", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
