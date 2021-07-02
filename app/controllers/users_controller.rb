@@ -29,7 +29,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :name2, :email, :password,
                                      :password_confirmation, :furigana, :furigana2,
                                       :year, :month, :day, :sex, :postal_code, :prefectures,
-                                      :municipality, :address)
+                                      :municipality, :address, :phone_number)
     end
 end
 
