@@ -10,6 +10,8 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'nokogiri'
 gem 'mechanize'
+# 画像アップ
+gem 'carrierwave'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

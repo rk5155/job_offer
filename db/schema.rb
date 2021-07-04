@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210702022224) do
+ActiveRecord::Schema.define(version: 20210704055621) do
 
   create_table "scrapings", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20210702022224) do
     t.string "municipality"
     t.string "address"
     t.string "phone_number"
+    t.string "image"
   end
 
 end
