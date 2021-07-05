@@ -1,0 +1,12 @@
+<% provide(:title, 'Sign up') %>
+<h1>WEB履歴書</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  
+    <%= form_for(@resume) do |f| %>
+      <%= f.label :配偶者 %>
+      <%= f.text_field :spouse %>
+    <% end %>
+  </div>
+</div>

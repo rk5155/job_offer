@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spouse: MyString
+  dependent_support: MyString
+  dependents: 1
+  employment_status: MyString
+  annual_Income: 1
+  experience: 1
+  Experienced: MyString
+  occupation: MyString
+
+two:
+  spouse: MyString
+  dependent_support: MyString
+  dependents: 1
+  employment_status: MyString
+  annual_Income: 1
+  experience: 1
+  Experienced: MyString
+  occupation: MyString
