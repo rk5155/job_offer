@@ -38,7 +38,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
     arel (8.0.0)
@@ -124,9 +124,10 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0225)
+    mime-types-data (3.2021.0704)
     mini_magick (4.11.0)
     mini_mime (1.1.0)
+    mini_portile2 (2.5.3)
     minitest (5.10.3)
     minitest-reporters (1.1.14)
       ansi
@@ -139,7 +140,8 @@ GEM
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
     nio4r (2.5.7)
-    nokogiri (1.11.7-arm64-darwin)
+    nokogiri (1.11.7)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
@@ -245,6 +247,7 @@ GEM
     websocket-extensions (0.1.5)
 
 PLATFORMS
+  ruby
   universal-darwin-20
   x86_64-darwin-19
   x86_64-linux
