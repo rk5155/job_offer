@@ -1,0 +1,83 @@
+<% provide(:title, 'Sign up') %>
+<h1>WEB履歴書</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  
+    <%= form_for(@job) do |f| %>
+      <%= f.label :勤務先名 %>
+      <%= f.text_field :office_name %><br><br>
+
+      <%= f.label :求人タイトル %>
+      <%= f.text_field :title %><br><br>
+
+      <%= f.label :職種区分 %>
+      <%= f.select :section, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+
+      <%= f.label :雇用形態 %>
+      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "正社員", nil %>正社員
+      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "アルバイト・パート", nil %>アルバイト・パート
+      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "契約社員", nil %>契約社員
+      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "業務委託", nil %>業務委託
+      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "新卒・インターン", nil %>新卒・インターン
+      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "派遣社員", nil %>派遣社員
+      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "紹介予定派遣", nil %>紹介予定派遣<br><br>
+
+      <%= f.label :仕事内容 %>
+      <%= f.text_area :content %><br><br>
+
+      <%= f.label :この仕事のやりがい %>
+      <%= f.text_area :rewarding %><br><br>
+
+      <%= f.label :対象となる方 %>
+      <%= f.text_area :target %><br><br>
+
+      <%= f.label :写真 %>
+      <%= f.file_field :image %><br><br>
+
+      
+
+      <%= f.label :勤務地 %>
+      <%= f.text_field :location1 %><br><br>
+      <%= f.text_field :location2 %><br><br>
+      <%= f.text_field :location3 %><br><br>
+      <%= f.text_field :location4 %><br><br>
+      <%= f.text_field :location5 %><br><br>
+      <%= f.text_field :location6 %><br><br>
+      <%= f.text_field :location7 %><br><br>
+
+      <%= f.label :交通手段 %>
+      <%= f.text_area :transportation %><br><br>
+
+      <%= f.label :給与 %>
+      <%= f.text_field :salary %><br><br>
+      <%= f.text_field :under %><br><br>
+      <%= f.text_field :up %><br><br>
+
+      <%= f.label :給与補足 %>
+      <%= f.text_area :supplement %><br><br>
+
+      <%= f.label :勤務時間・休日 %>
+      <%= f.text_area :conditions %><br><br>
+
+      
+
+      <%= f.label :必要項目 %>
+      <%= f.radio_button :application, "氏名・連絡先のみ" %> 氏名・連絡先のみ
+      <%= f.radio_button :application, "基本情報" %> 基本情報
+      <%= f.radio_button :application, "基本情報 + 職務経歴" %> 基本情報 + 職務経歴<br><br>
+
+
+      <%= f.label :応募受付の電話番号 %>
+      <%= f.text_area :number %><br><br>
+
+      <%= f.label :選考について %>
+      <%= f.text_area :selection %><br><br>
+      
+
+      <%= f.submit "登録", class: "btn btn-primary" %>
+      
+      
+    <% end %>
+  </div>
+</div>

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root 'application#hello'
   resources :users
   resources :resumes
+  resources :jobs
 end
