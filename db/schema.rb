@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210707060653) do
+ActiveRecord::Schema.define(version: 20210708073531) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "office_name"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20210707060653) do
     t.string "address"
     t.string "phone_number"
     t.string "image"
+    t.string "password_digest"
   end
 
 end
