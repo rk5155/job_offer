@@ -1,4 +1,12 @@
 <% provide(:title, @user.name) %>
+<% if logged_in? %>
+  ログイン中です
+  <%= link_to "ログアウトする", logout_path, method: :delete %>
+<% else %>
+  ログインしてません
+   <li><%= link_to "ログインする", login_path %></li>
+<% end %>
+
 <div class="">
   <aside class="">
     <section class="">

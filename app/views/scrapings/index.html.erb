@@ -1,4 +1,19 @@
 <h1>Scrapings#index</h1>
+<% flash.each do |message_type, message| %>
+      <%= message %>
+<% end %>
+<% if logged_in? %>
+  ログイン中です
+  <%= link_to "ログアウトする", logout_path, method: :delete %>
+<% else %>
+  ログインしてません
+   <li><%= link_to "ログインする", login_path %></li>
+   <li><%= link_to "新規会員登録する", new_user_path %></li>
+<% end %>
+
+<br>
+<br>
+
 
 <%= form_tag(scrapings_search_path,:method => 'get') do %>
   

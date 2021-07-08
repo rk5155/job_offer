@@ -12,7 +12,8 @@ gem 'nokogiri'
 gem 'mechanize'
 # 画像アップ
 gem 'carrierwave'
-gem 'bcrypt'
+
+gem 'bcrypt',         '3.1.12'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
