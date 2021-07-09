@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210708073531) do
+ActiveRecord::Schema.define(version: 20210709061302) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "office_name"
@@ -118,6 +118,14 @@ ActiveRecord::Schema.define(version: 20210708073531) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.text "time"
+    t.text "location"
+    t.text "salary"
+    t.text "bonus"
+    t.text "allowance"
+    t.text "holiday"
+    t.text "welfare"
+    t.text "other"
   end
 
   create_table "users", force: :cascade do |t|

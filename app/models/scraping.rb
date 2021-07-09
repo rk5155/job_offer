@@ -17,19 +17,52 @@ class Scraping < ApplicationRecord
           details_page = page.link_with(href: url).click
           #取得したい要素
           title = details_page.search('.occName')
+          scraping.name = title.inner_text
           
           details_page.css(".jobOfferTable__head").each do |ele|
             essentials_title = ele.text
 
             if essentials_title === "雇用形態"
-              status = details_page.search('body > div.wrapper > div.container.container-jobinfo > div.container__inner.lightBlue > div > div.jobPointArea__mainWrap > div.leftBlock.clearfix > table:nth-child(13) > tbody > tr:nth-child(1) > td > div').inner_text
-              scraping.status = status
-              scraping.save
+              text = ele.next.next.inner_text
+              scraping.status = text
+
+            elsif essentials_title === "勤務時間"
+              text = ele.next.next.inner_text
+              scraping.time = text
+
+            elsif essentials_title === "勤務地"
+              text = ele.next.next.inner_text
+              scraping.location = text
+
+            elsif essentials_title === "給与"
+              text = ele.next.next.inner_text
+              scraping.salary = text
+
+            elsif essentials_title === "昇給・賞与"
+              text = ele.next.next.inner_text
+              scraping.bonus = text
+
+            elsif essentials_title === "諸手当"
+              text = ele.next.next.inner_text
+              scraping.allowance = text
+
+            elsif essentials_title === "休日・休暇"
+              text = ele.next.next.inner_text
+              scraping.holiday = text
+
+            elsif essentials_title === "福利厚生"
+              text = ele.next.next.inner_text
+              scraping.welfare = text
+
+            else
+              text = ele.next.next.inner_text
+              scraping.other = text
+              
             end
           end
 
           # Scrapingテーブルへ保存
-          scraping.name = title.inner_text
+          
           scraping.save
         end
     end
