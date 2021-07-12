@@ -1,5 +1,7 @@
+<h2><%= @posts.length %>件ヒット</h2>
 <% @posts.each do |data| %>
     <p><%= data.name %></p>
     <p><%= data.status %></p>
+    <p><%= data.location %></p>
     <hr>
 <% end %> 
