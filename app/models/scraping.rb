@@ -13,6 +13,7 @@ class Scraping < ApplicationRecord
           scraping = Scraping.new
 
           url = ele[:href]
+          scraping.url = "https://tenshoku.mynavi.jp" + url
           # 一覧ページから、格詳細ページへ移動
           details_page = page.link_with(href: url).click
           #取得したい要素
