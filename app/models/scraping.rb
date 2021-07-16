@@ -85,9 +85,10 @@ class Scraping < ApplicationRecord
       # 雇用形態のみ空欄
       elsif status != "" && title == "" && location == ""
         Scraping.where(['status LIKE ?', "%#{status}%"]).where(['location LIKE ?', "%#{location}%"])
-      # 都道府県のみ空欄
+      # 都道府県以外空欄
       elsif status == "" && title == "" && location != ""
-        Scraping.where(['status LIKE ?', "%#{status}%"]).where(['title LIKE ?', "%#{title}%"])
+        # Scraping.where(['status LIKE ?', "%#{status}%"]).where(['title LIKE ?', "%#{title}%"])
+        Scraping.where(['location LIKE ?', "%#{location}%"])
       # 全項目が入力されている
       else
         Scraping.where(['name LIKE ?', "%#{title}%"]).where(['status LIKE ?', "%#{status}%"]).where(['location LIKE ?', "%#{location}%"])

@@ -1,6 +1,6 @@
 <h2><%= @posts.length %>件ヒット</h2>
 <% @posts.each do |data| %>
-    <p><%= data.name %></p>
+    <a href="<%= data.url %>" target="_blank" rel="noopener noreferrer"><%= data.name %></a>
     <p><%= data.status %></p>
     <p><%= data.location %></p>
     <hr>
