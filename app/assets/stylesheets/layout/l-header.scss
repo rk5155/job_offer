@@ -1,0 +1,53 @@
+@import "../foundation/variable.scss";
+
+.l-header {
+    .l-header-top {
+        font-size: 12px;
+        background-color: $baseColor1;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 80px;
+        h1 {
+            font-size: 18px;
+        }
+    }
+
+    .l-header-bottom {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        padding: 0 80px;
+        background-color: $mainColor;
+        img {
+            border: 1px solid;
+            width: 100px;
+            height: 50px;
+        }
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            li {
+                margin: 0 6px;
+            }
+        }
+    }
+
+    .l-header-nav {
+        background-color: $baseColor2;
+        ul {
+            display: flex;
+            justify-content: center;
+            color: #ffffff;
+            
+            li {
+                padding: 10px 60px;
+                border-right: 1px solid #ffffff;
+                font-size: 16px;
+                &:nth-child(1) {
+                    border-left: 1px solid #ffffff;
+                }
+            }
+        }
+    }
+}

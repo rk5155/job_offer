@@ -2,14 +2,7 @@
 <% flash.each do |message_type, message| %>
       <%= message %>
 <% end %>
-<% if logged_in? %>
-  ログイン中です
-  <%= link_to "ログアウトする", logout_path, method: :delete %>
-<% else %>
-  ログインしてません
-   <li><%= link_to "ログインする", login_path %></li>
-   <li><%= link_to "新規会員登録する", new_user_path %></li>
-<% end %>
+
 
 <br>
 <br>
@@ -33,11 +26,4 @@
 <% end %>
 
 <h2><%= @scraping.length %>件表示</h2>
-
-<% @scraping.each do |data| %>
-    <p><%= data.name %></p>
-    <p><%= data.status %></p>
-    <p><%= data.location %></p>
-    <hr>
-<% end %> 
 
