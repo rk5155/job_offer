@@ -1,7 +1,19 @@
-<h2><%= @posts.length %>件ヒット</h2>
-<% @posts.each do |data| %>
-    <a href="<%= data.url %>" target="_blank" rel="noopener noreferrer"><%= data.name %></a>
-    <p><%= data.status %></p>
-    <p><%= data.location %></p>
-    <hr>
-<% end %> 
+<div class="p-result">
+    <p>転職・求人情報<%= @posts.length %>件</p>
+
+    <article class="p-result__article">
+        <% @posts.each do |data| %>
+            <section class="p-result__item">
+                <a href="<%= data.url %>" target="_blank" rel="noopener noreferrer">
+                    <p><%= data.name %></p>
+                    <p><%= data.status %></p>
+                    <p><%= data.location %></p>
+                    <hr>
+                </a>
+            </section>
+        <% end %> 
+    </article>
+
+    
+</div>
+

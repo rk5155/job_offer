@@ -14,3 +14,15 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
+
+$(function(){
+    $('.p-slider ul').slick({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        dots: true,
+        slidesToShow: 6,
+        slidesToScroll: 4,
+        // centerMode: true
+    });
+    
+});

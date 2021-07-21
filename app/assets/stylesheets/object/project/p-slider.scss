@@ -1,0 +1,40 @@
+.p-slider {
+    .p-slider__list {
+        position: relative;
+        .slick-prev {
+            position: absolute;
+            top: 100px;
+            right: 200px;
+            z-index: 1;
+        }
+        .slick-next {
+            position: absolute;
+            top: 100px;
+            left: 200px;
+            z-index: 1;
+        }
+
+        .p-slider__item {
+            border: 1px solid;
+            margin: 0 20px;
+            
+            p {
+                color: blue;
+                font-size: 12px;
+                padding: 20px;
+            }
+            img {
+                width: 148px;
+                height: auto;
+            }
+        }
+        .slick-dots {
+            text-align: center;
+            margin-top: 20px;
+            li {
+                display: inline-block;
+                margin: 0 10px;
+            }
+        }
+    }
+}

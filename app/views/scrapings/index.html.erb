@@ -1,29 +1,90 @@
-<h1>Scrapings#index</h1>
-<% flash.each do |message_type, message| %>
-      <%= message %>
-<% end %>
-
-
-<br>
-<br>
-
-
-<%= form_tag(scrapings_search_path,:method => 'get') do %>
+<section class="p-slider">
+  <p>お知らせ</p>
   
+  <ul class="p-slider__list">
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+
+    <li class="p-slider__item">
+      <a href="#">
+        <%= image_tag 'pencily192.png' %>
+        <p>テキストテキストテキストテキストテキスト</p>
+      </a>
+    </li>
+    
+  </ul>
+</section>
+
+
+<section class="p-search">
+  <%= form_tag(scrapings_search_path,:method => 'get') do %>
+
+    <%= label_tag :職種、業種、働き方など %>
+    <%= text_field_tag :title %>
   
+    <%= label_tag :雇用形態 %>
+    <%= select_tag 'status', options_for_select({正社員: "正社員", 契約社員: "契約社員", 業務委託: "業務委託", アルバイト: "アルバイト"}, ""), include_blank: true %>
+
+    <%= label_tag :都道府県、市町村区、駅名 %>
+    <%= text_field_tag :location %>
+
+    <%= submit_tag '検索' %>
+  <% end %>
+</section>
 
 
-  <%= label_tag :職種、業種、働き方など %>
-  <%= text_field_tag :title %>
- 
-  <%= label_tag :雇用形態 %>
-  <%= select_tag 'status', options_for_select({正社員: "正社員", 契約社員: "契約社員", 業務委託: "業務委託", アルバイト: "アルバイト"}, ""), include_blank: true %>
 
-  <%= label_tag :都道府県、市町村区、駅名 %>
-  <%= text_field_tag :location %>
-
-  <%= submit_tag '検索' %>
-<% end %>
-
-<h2><%= @scraping.length %>件表示</h2>
 
