@@ -13,6 +13,10 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    
     <header class="l-header">
       <div class="l-header-top">
         <h1>求人</h1>
@@ -22,15 +26,18 @@
       <div class="l-header-bottom">
         <img src="" alt="">
 
+        
+
         <ul>
             <li><a href="">サイトマップ</a></li>
             <li><a href="">ヘルプ</a></li>
-          <% if logged_in? %>
-            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+          <% if user_devise_signed_in? %>
+            <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
+            <li><%= link_to 'プロフィール変更', edit_user_devise_registration_path %></li>
             <li><a href="">マイページ</a></li>
           <% else %>
-            <li><%= link_to "ログイン", login_path %></li>
-            <li><%= link_to "新規会員登録する", new_user_path %></li>
+            <li><%= link_to 'ログイン', new_user_devise_session_path %></li>
+            <li><%= link_to 'サインアップ', new_user_devise_registration_path %></li>
           <% end %>
         </ul>
       </div>
