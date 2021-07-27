@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'scrapings#index'
   get  "scrapings/search"  => "scrapings#search"
+  resources :scrapings
+  
 
   # root 'application#hello'
   resources :users
