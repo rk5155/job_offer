@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :companies
   devise_for :user_devises
   root 'scrapings#index'
   get  "scrapings/search"  => "scrapings#search"
