@@ -11,6 +11,24 @@ class ScrapingsController < ApplicationController
     @scraping = Scraping.new
   end
 
+  def show
+    @scraping = Scraping.find(params[:id])
+  end
+
+  def edit
+    @scraping = Scraping.find(params[:id])
+  end
+
+  def update
+    @scraping = Scraping.find(params[:id])
+    if @scraping.update_attributes(scraping_params)
+      flash[:success] = "編集しました。"
+      redirect_to @scraping
+    else
+      render 'edit'
+    end
+  end
+
   def create
     @scraping = Scraping.new(scraping_params)
     if @scraping.save
@@ -25,6 +43,6 @@ class ScrapingsController < ApplicationController
   private
 
   def scraping_params
-      params.require(:scraping).permit(:name,:status,:location,:salary,:holiday,:application,:name,:name)
+      params.require(:scraping).permit(:name,:status,:location,:salary,:holiday,:application)
   end
 end

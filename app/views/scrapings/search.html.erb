@@ -3,14 +3,27 @@
 
     <article class="p-result__article">
         <% @posts.each do |data| %>
-            <section class="p-result__item">
-                <a href="<%= data.url %>" target="_blank" rel="noopener noreferrer">
-                    <p><%= data.name %></p>
-                    <p><%= data.status %></p>
-                    <p><%= data.location %></p>
-                    <hr>
-                </a>
-            </section>
+            <% if data.url === nil %>
+                <section class="p-result__item">
+                    <a href="/scrapings/<%= data.id %>" target="_blank" rel="noopener noreferrer">
+                        <p><%= data.name %></p>
+                        <p><%= data.status %></p>
+                        <p><%= data.location %></p>
+                        <hr>
+                    </a>
+                </section>
+
+            <% else %>
+                <section class="p-result__item">
+                    <a href="<%= data.url %>" target="_blank" rel="noopener noreferrer">
+                        <p><%= data.name %></p>
+                        <p><%= data.status %></p>
+                        <p><%= data.location %></p>
+                        <hr>
+                    </a>
+                </section>
+            <% end %>
+            
         <% end %> 
     </article>
 
