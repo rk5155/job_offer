@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :companies
+
   devise_for :user_devises
+  resources :user_devises, only: [:show]
+
   root 'scrapings#index'
   get  "scrapings/search"  => "scrapings#search"
   resources :scrapings
