@@ -22,6 +22,6 @@ class AppliesController < ApplicationController
   private
 
   def apply_params
-      params.require(:apply).permit(:name, :number, :email)
+      params.require(:apply).permit(:name, :number, :email, :company_id)
   end
 end
