@@ -1,6 +1,12 @@
 <%= @company.id %><br>
 <%= @company.email %><br><br>
-<a href="/scrapings/new" style="color: black;">求人作成</a><br><br>
+
+<style>
+a {
+    color: black!important;
+}
+</style>
+<%= link_to "求人作成", new_scraping_path(id: @company) %>
 
 <% @company.applies.each do |apply| %>
     <p><%= apply.email %></p>

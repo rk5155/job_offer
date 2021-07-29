@@ -9,6 +9,7 @@ class ScrapingsController < ApplicationController
 
   def new
     @scraping = Scraping.new
+    @id = params[:id]
   end
 
   def show
