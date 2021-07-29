@@ -1,6 +1,6 @@
 <%= @company.id %><br>
 <%= @company.email %><br><br>
-<a href="" style="color: black;">応募管理</a><br><br>
+<a href="/scrapings/new" style="color: black;">求人作成</a><br><br>
 
 <% @company.applies.each do |apply| %>
     <p><%= apply.email %></p>

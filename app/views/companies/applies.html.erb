@@ -1,4 +1,7 @@
 <h2>応募者一覧</h2>
 <% current_company.applies .each do |apply| %>
+    <p><%= apply.name %></p>
     <p><%= apply.email %></p>
+    <p><%= apply.number %></p>
+    <hr>
 <% end %>
