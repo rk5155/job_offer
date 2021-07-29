@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :companies
   resources :companies, only: [:show]
+  get "companies/:id" => "companies#show", as: :mypage
 
   devise_for :user_devises
   resources :user_devises, only: [:show]
