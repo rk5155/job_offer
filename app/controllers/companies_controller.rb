@@ -3,4 +3,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     
   end
+
+  def applies
+  end
 end
