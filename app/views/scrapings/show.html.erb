@@ -1,5 +1,7 @@
 <% provide(:title, @scraping.name) %>
 
+<h2>求人詳細ページ</h2>
+
 <div class="">
   <aside class="">
     <section class="">
@@ -7,6 +9,8 @@
         <p><%= @scraping.location %></p>
         <p><%= @scraping.salary %></p>
         <p><%= @scraping.holiday %></p>
+
+        <a href="/applies/new" style="color: red;">応募ページへ</a>
         
     </section>
   </aside>
