@@ -35,6 +35,10 @@
             <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
             <li><%= link_to 'プロフィール変更', edit_user_devise_registration_path %></li>
             <li><a href="">マイページ</a></li>
+          <% elsif company_signed_in? %>
+            <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete %></li>
+            <li><%= link_to 'プロフィール変更', edit_company_registration_path %></li>
+            <li><a href="">マイページ</a></li>
           <% else %>
             <li><%= link_to 'ログイン', new_user_devise_session_path %></li>
             <li><%= link_to 'サインアップ', new_user_devise_registration_path %></li>

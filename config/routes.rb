@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  # get 'applies/new'
+  # post 'applies/create'
+
+
+  get 'companies/show'
+
   devise_for :companies
+  resources :companies, only: [:show]
 
   devise_for :user_devises
   resources :user_devises, only: [:show]
@@ -13,6 +20,7 @@ Rails.application.routes.draw do
   resources :users
   resources :resumes
   resources :jobs
+  resources :applies
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

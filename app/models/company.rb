@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  has_many :apply, dependent: :destroy
+  has_many :applies, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
