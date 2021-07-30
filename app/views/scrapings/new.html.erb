@@ -28,7 +28,11 @@
       <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "紹介予定派遣", nil %>紹介予定派遣<br><br>
 
       <%= f.label :仕事内容 %>
-      
+      <%= f.text_area :content %><br><br>
+
+      <%= f.label :企業ID %>
+      <%= f.text_area :company_id, :value =>"#{@id}" %><br><br>
+
 
       <%= f.label :この仕事のやりがい %>
       <%= f.text_area :rewarding %><br><br>

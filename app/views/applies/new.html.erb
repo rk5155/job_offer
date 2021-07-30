@@ -12,7 +12,8 @@
       <%= f.email_field :email %><br><br>
 
       <%= f.label :企業id %>
-      <%= f.number_field :company_id %> <br><br>
+      <%= f.number_field :company_id, :value =>"#{@id}" %><br><br>
+
 
       <%= f.submit "応募する", class: "btn btn-primary" %>
     <% end %>

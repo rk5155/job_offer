@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210730040940) do
+ActiveRecord::Schema.define(version: 20210730060053) do
 
   create_table "applies", force: :cascade do |t|
     t.string "name"
@@ -172,6 +172,8 @@ ActiveRecord::Schema.define(version: 20210730040940) do
     t.string "application"
     t.integer "number"
     t.text "selection"
+    t.text "content"
+    t.integer "company_id"
   end
 
   create_table "user_devises", force: :cascade do |t|

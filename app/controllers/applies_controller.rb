@@ -2,6 +2,7 @@ class AppliesController < ApplicationController
 
   def new
       @apply = Apply.new
+      @id = params[:id]
   end
 
   def create

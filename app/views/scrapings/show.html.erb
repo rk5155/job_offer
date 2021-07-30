@@ -9,8 +9,16 @@
         <p><%= @scraping.location %></p>
         <p><%= @scraping.salary %></p>
         <p><%= @scraping.holiday %></p>
+        <p><%= @scraping.company_id %></p>
 
-        <a href="/applies/new" style="color: red;">応募ページへ</a>
+        <style>
+          a {
+              color: black!important;
+          }
+        </style>
+
+
+        <%= link_to "応募ページへ", new_apply_path(id: @scraping.company_id) %>
         
     </section>
   </aside>
