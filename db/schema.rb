@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210727085000) do
+ActiveRecord::Schema.define(version: 20210730040940) do
 
   create_table "applies", force: :cascade do |t|
     t.string "name"
@@ -154,6 +154,24 @@ ActiveRecord::Schema.define(version: 20210727085000) do
     t.text "welfare"
     t.text "other"
     t.string "url"
+    t.string "title"
+    t.string "section"
+    t.text "rewarding"
+    t.text "target"
+    t.string "image"
+    t.string "location1"
+    t.string "location2"
+    t.string "location3"
+    t.string "location4"
+    t.string "location5"
+    t.text "transportation"
+    t.string "under"
+    t.string "up"
+    t.text "supplement"
+    t.text "conditions"
+    t.string "application"
+    t.integer "number"
+    t.text "selection"
   end
 
   create_table "user_devises", force: :cascade do |t|

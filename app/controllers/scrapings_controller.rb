@@ -44,6 +44,8 @@ class ScrapingsController < ApplicationController
   private
 
   def scraping_params
-      params.require(:scraping).permit(:name,:status,:location,:salary,:holiday,:application)
+      params.require(:scraping).permit(:name,:location,:salary,:holiday,:application,
+                                      :application,:title,:section,:rewarding,:target,:image,:location1,:location2,:location3,:location4,:location5,
+                                      :transportation,:under,:up,:supplement,:conditions,:application,:number,:selection, status: [])
   end
 end
