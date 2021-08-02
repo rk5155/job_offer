@@ -6,8 +6,16 @@
             <% if data.url === nil %>
                 <section class="p-result__item">
                     <a href="/scrapings/<%= data.id %>" target="_blank" rel="noopener noreferrer">
-                        <p><%= data.name %></p>
-                        <p><%= data.status %></p>
+                        <%= data.name %></p>
+
+                        <% if data.status.class === "string" %>
+                          <% data.status.split(",").each do |ele| %>
+                            <p><%= ele.delete("[").delete("]").delete("\"") %></p>
+                          <% end %>
+                        <% else %>
+                          <p><%= data.status %></p>
+                        <% end %>
+                        
                         <p><%= data.location %></p>
                         <hr>
                     </a>
