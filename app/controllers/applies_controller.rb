@@ -10,9 +10,8 @@ class AppliesController < ApplicationController
       @apply = Apply.new(apply_params)
       
       if @apply.save
-          
           flash[:success] = "Welcome!!!!!!!!!!!"
-          
+          ContactMailer.applied(@apply).deliver
       else
           render 'new'
       end
