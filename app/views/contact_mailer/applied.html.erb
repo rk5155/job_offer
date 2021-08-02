@@ -12,14 +12,23 @@
   </style>
 </head>
 <body>
-  <h2><%= @apply.name %> 様</h2>
+  <h2><%= @apply.name %>様より応募がありました。</h2>
   <hr />
+  
   <p>
-    この度は「メールテスト運営局」を利用頂きましてありがとうございます。
+    氏名: <%= @apply.name %><br/>
   </p>
+
   <p>
-    ユーザー名: <%= @apply.name %><br />
+    電話番号: <%= @apply.number %><br/>
   </p>
-  <hr />
+  
+  <p>
+    メールアドレス: <%= @apply.email %><br/>
+  </p>
+
+  
+
+  <hr/>
 </body>
 </html>

@@ -7,7 +7,7 @@ class ContactMailer < ApplicationMailer
   #
   def applied(apply)
     @apply = apply
-    mail to:      @apply.email,
+    mail to:      @apply.company.email,
          subject: '新規応募がありました。'
   end
 end
