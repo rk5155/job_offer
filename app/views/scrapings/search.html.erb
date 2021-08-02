@@ -1,19 +1,19 @@
 <div class="p-result">
-    <p>転職・求人情報<%= @posts.length %>件</p>
+    <p>転職・求人情報<%= @results.length %>件</p>
 
-    <article class="p-result__article">
-        <% @posts.each do |data| %>
+    <article>
+        <% @results.each do |data| %>
             <% if data.url === nil %>
                 <section class="p-result__item">
                     <a href="/scrapings/<%= data.id %>" target="_blank" rel="noopener noreferrer">
                         <%= data.name %></p>
 
                         <% if data.status.class === "string" %>
-                          <% data.status.split(",").each do |ele| %>
+                        <% data.status.split(",").each do |ele| %>
                             <p><%= ele.delete("[").delete("]").delete("\"") %></p>
-                          <% end %>
+                        <% end %>
                         <% else %>
-                          <p><%= data.status %></p>
+                        <p><%= data.status %></p>
                         <% end %>
                         
                         <p><%= data.location %></p>
@@ -31,8 +31,8 @@
                     </a>
                 </section>
             <% end %>
-            
-        <% end %> 
+
+        <% end %>
     </article>
 
     

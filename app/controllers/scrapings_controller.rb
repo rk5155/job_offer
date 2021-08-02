@@ -1,10 +1,17 @@
 class ScrapingsController < ApplicationController
+  before_action :set_q, only: [:index, :search]
+
   def index
     @scraping = Scraping.all
+    @q = Scraping.ransack(params[:q])
   end
 
   def search
-    @posts = Scraping.search(params[:title], params[:status], params[:location])
+    @results = @q.result
+  end
+
+  def set_q
+    @q = Scraping.ransack(params[:q])
   end
 
   def new
