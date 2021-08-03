@@ -3,10 +3,15 @@ class ScrapingsController < ApplicationController
 
   def index
     @scraping = Scraping.all
-    @q = Scraping.ransack(params[:q])
   end
 
   def search
+    #:qは検索窓に入力された値をパラメータで取得
+    # name_cont_any location_cont_any をスペース区切りで配列にし、複数検索
+    params[:q]['name_cont_any'] = params[:q]['name_cont_any'].split(/[\p{blank}\s]+/)
+    params[:q]['location_cont_any'] = params[:q]['location_cont_any'].split(/[\p{blank}\s]+/)
+    
+    @q = Scraping.ransack(params[:q])
     @results = @q.result
   end
 
