@@ -15,6 +15,9 @@ gem 'carrierwave'
 
 gem 'devise'
 
+# 検索機能
+gem 'ransack'
+
 gem 'bcrypt',         '3.1.12'
 
 group :development, :test do

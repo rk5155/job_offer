@@ -7,7 +7,7 @@ class Scraping < ApplicationRecord
 
         
         #getの引数はサイトのURL
-        3.times do |count|
+        1.times do |count|
           page = agent.get("https://tenshoku.mynavi.jp/list/pg#{count + 1}/")
 
           page.css(".cassetteRecruit__bottom a").each do |ele|
@@ -75,23 +75,4 @@ class Scraping < ApplicationRecord
 
     end
 
-    def self.search(title, status, location)
-      # 全項目空欄で検索を押した時
-      if status == "" && title == "" && location == ""
-        Scraping.all
-      # titleのみ空欄
-      elsif status == "" && title != "" && location == ""
-        Scraping.where(['name LIKE ?', "%#{title}%"]).where(['location LIKE ?', "%#{location}%"])
-      # 雇用形態のみ空欄
-      elsif status != "" && title == "" && location == ""
-        Scraping.where(['status LIKE ?', "%#{status}%"]).where(['location LIKE ?', "%#{location}%"])
-      # 都道府県以外空欄
-      elsif status == "" && title == "" && location != ""
-        # Scraping.where(['status LIKE ?', "%#{status}%"]).where(['title LIKE ?', "%#{title}%"])
-        Scraping.where(['location LIKE ?', "%#{location}%"])
-      # 全項目が入力されている
-      else
-        Scraping.where(['name LIKE ?', "%#{title}%"]).where(['status LIKE ?', "%#{status}%"]).where(['location LIKE ?', "%#{location}%"])
-      end
-    end
 end

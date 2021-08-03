@@ -1,10 +1,22 @@
 class ScrapingsController < ApplicationController
+  before_action :set_q, only: [:index, :search]
+
   def index
     @scraping = Scraping.all
   end
 
   def search
-    @posts = Scraping.search(params[:title], params[:status], params[:location])
+    #:qは検索窓に入力された値をパラメータで取得
+    # name_cont_any location_cont_any をスペース区切りで配列にし、複数検索
+    params[:q]['name_cont_any'] = params[:q]['name_cont_any'].split(/[\p{blank}\s]+/)
+    params[:q]['location_cont_any'] = params[:q]['location_cont_any'].split(/[\p{blank}\s]+/)
+    
+    @q = Scraping.ransack(params[:q])
+    @results = @q.result
+  end
+
+  def set_q
+    @q = Scraping.ransack(params[:q])
   end
 
   def new
