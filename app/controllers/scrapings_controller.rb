@@ -8,7 +8,11 @@ class ScrapingsController < ApplicationController
   def search
     #:qは検索窓に入力された値をパラメータで取得
     # name_cont_any location_cont_any をスペース区切りで配列にし、複数検索
-    params[:q]['name_cont_any'] = params[:q]['name_cont_any'].split(/[\p{blank}\s]+/)
+    勤務地から探すを押した時、name_cont_any がnilだとエラーになるから
+    if params[:q]['name_cont_any'] != nil
+      params[:q]['name_cont_any'] = params[:q]['name_cont_any'].split(/[\p{blank}\s]+/)
+    end
+    
     params[:q]['location_cont_any'] = params[:q]['location_cont_any'].split(/[\p{blank}\s]+/)
     
     @q = Scraping.ransack(params[:q])

@@ -1,5 +1,6 @@
 <div class="p-result">
-    <p>転職・求人情報<%= @results.length %>件</p>
+    <p>転職・求人情報: <%= @results.length %>件</p>
+    <p>検索条件: <%= params[:q]['location_cont_any'] %><%= params[:q]['name_cont_any'] %><%= params[:q]['status_cont'] %></p>
 
     <article>
         <% @results.each do |data| %>
