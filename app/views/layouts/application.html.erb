@@ -15,12 +15,17 @@
   <body>
 
     <%= render 'shared/header' %>
+    
+    <% if current_page?(root_path) %>
+      <%= render 'shared/top_slider' %>
+    <% end %>
+    
 
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
 
-    <main>
+    <main class="l-main">
       <%= yield %>
     </main>
 
