@@ -14,49 +14,7 @@
 
   <body>
 
-    
-    <header class="l-header">
-      <div class="l-header-top">
-        <h1>求人</h1>
-        <p>検索しやすさと求人情報の中身の濃さにこだわったスキルマッチ転職サイトです。</p>
-      </div>
-
-      <div class="l-header-bottom">
-        <a href="/"><img src="" alt=""></a>
-
-        
-
-        <ul>
-            <li><a href="">サイトマップ</a></li>
-            <li><a href="">ヘルプ</a></li>
-          <% if user_devise_signed_in? %>
-            <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
-            <li><%= link_to 'プロフィール変更', edit_user_devise_registration_path %></li>
-            <li><a href="">マイページ</a></li>
-            <%= current_user_devise.email %>
-          <% elsif company_signed_in? %>
-            <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete %></li>
-            <li><%= link_to 'プロフィール変更', edit_company_registration_path %></li>
-            <li><a href="/companies/<%= current_company.id %>">マイページ</a></li>
-            <li><a href="/companies/applies">応募者一覧</a></li>
-            <%= current_company.email %>
-          <% else %>
-            <li><%= link_to 'ログイン', new_user_devise_session_path %></li>
-            <li><%= link_to 'サインアップ', new_user_devise_registration_path %></li>
-          <% end %>
-        </ul>
-      </div>
-
-      <nav class="l-header-nav">
-        <ul>
-          <li><a href="">応募管理</a></li>
-          <li><a href="">検討中リスト</a></li>
-          <li><a href="">スカウト</a></li>
-          <li><a href="">求人提案</a></li>
-        </ul>
-      </nav>
-
-    </header>
+    <%= render 'shared/header' %>
 
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
@@ -69,8 +27,6 @@
     <%= debug(params) if Rails.env.development? %>
 
 
-    <footer class="l-footer">
-
-    </footer>
+    <%= render 'shared/footer' %>
   </body>
 </html>
