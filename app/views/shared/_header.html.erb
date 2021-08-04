@@ -5,29 +5,28 @@
     </div>
 
     <div class="l-header-bottom">
-        <a href="/"><img src="" alt=""></a>
-
-        
-
-        <ul>
-            <li><a href="">サイトマップ</a></li>
-            <li><a href="">ヘルプ</a></li>
-            <% if user_devise_signed_in? %>
-            <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
-            <li><%= link_to 'プロフィール変更', edit_user_devise_registration_path %></li>
-            <li><a href="">マイページ</a></li>
-            <%= current_user_devise.email %>
-            <% elsif company_signed_in? %>
-            <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete %></li>
-            <li><%= link_to 'プロフィール変更', edit_company_registration_path %></li>
-            <li><a href="/companies/<%= current_company.id %>">マイページ</a></li>
-            <li><a href="/companies/applies">応募者一覧</a></li>
-            <%= current_company.email %>
-            <% else %>
-            <li><%= link_to 'ログイン', new_user_devise_session_path %></li>
-            <li><%= link_to 'サインアップ', new_user_devise_registration_path %></li>
-            <% end %>
-        </ul>
+        <div>
+            <a href="/"><img src="" alt=""></a>
+            <ul>
+                <li><a href="">サイトマップ</a></li>
+                <li><a href="">ヘルプ</a></li>
+                <% if user_devise_signed_in? %>
+                <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
+                <li><%= link_to 'プロフィール変更', edit_user_devise_registration_path %></li>
+                <li><a href="">マイページ</a></li>
+                <%= current_user_devise.email %>
+                <% elsif company_signed_in? %>
+                <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete %></li>
+                <li><%= link_to 'プロフィール変更', edit_company_registration_path %></li>
+                <li><a href="/companies/<%= current_company.id %>">マイページ</a></li>
+                <li><a href="/companies/applies">応募者一覧</a></li>
+                <%= current_company.email %>
+                <% else %>
+                <li><%= link_to 'ログイン', new_user_devise_session_path %></li>
+                <li><%= link_to 'サインアップ', new_user_devise_registration_path %></li>
+                <% end %>
+            </ul>
+        </div>
     </div>
 
     <nav class="l-header-nav">

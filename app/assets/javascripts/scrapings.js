@@ -7,6 +7,9 @@ document.addEventListener("turbolinks:load", function() {
         dots: true,
         slidesToShow: 6,
         slidesToScroll: 4,
+        prevArrow: '<span class="slide-arrow prev-arrow"></span>',
+        nextArrow: '<span class="slide-arrow next-arrow"></span>',
+        dotsClass: 'slide-dots'
         // centerMode: true
     });
 

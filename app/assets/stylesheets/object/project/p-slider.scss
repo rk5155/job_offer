@@ -1,3 +1,5 @@
+@import "../../foundation/variable.scss";
+
 .p-slider {
     .p-slider__list {
         position: relative;
@@ -15,16 +17,19 @@
         }
 
         .p-slider__item {
-            border: 1px solid;
+            border: 1px solid #EEEEEE;
             margin: 0 20px;
+            width: 200px!important;
+            height: 220px;
+            box-shadow: 0 0 8px #EEEEEE;
             
             p {
-                color: blue;
                 font-size: 12px;
-                padding: 20px;
+                padding: 14px 10px;
+                line-height: 1.5;
             }
             img {
-                width: 148px;
+                width: 200px;
                 height: auto;
             }
         }
@@ -38,3 +43,86 @@
         }
     }
 }
+.p-slider__text {
+    display: block;
+    width: 960px;
+    margin: 16px auto;
+    font-size: 14px;
+}
+
+// スライドが一瞬縦並びになるのを防ぐ
+.p-slider ul {
+    display: none;
+}
+.p-slider ul.slick-initialized {
+    display: block;
+}
+
+
+.prev-arrow {
+    position: relative;
+    display: block;
+}
+.prev-arrow::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 0px;
+    border-top: solid 6px #999999;
+    border-right: solid 6px #999999;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 88px;
+    right: 102px;
+    margin-top: -4px;
+    z-index: 10;
+}
+.next-arrow::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 0px;
+    border-top: solid 6px #999999;
+    border-right: solid 6px #999999;
+    -ms-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    position: absolute;
+    top: 88px;
+    left: 102px;
+    margin-top: -4px;
+    z-index: 10;
+}
+
+.slide-dots{
+    text-align: center;
+    li{
+      display: inline-block;
+      margin: 0 15px;
+      button{
+        position: relative;
+        text-indent: -9999px;
+        &:before{
+          content: '○';
+          font-size: 20px;
+          text-indent: 0px;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      &.slick-active{
+        button:before{
+          content: '●';
+        }
+      }
+    }
+  }
+.slide-dots li button {      
+    background: transparent;   
+    border:0;   
+    font-size: 0pt; 
+}
+  

@@ -13,11 +13,16 @@
     }
 
     .l-header-bottom {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        padding: 0 80px;
         background-color: $mainColor;
+        div {
+            display: flex;
+            justify-content: space-between;
+            width: 960px;
+            margin: 0 auto;
+            font-size: 12px;
+            padding: 0 80px;
+        }
+        
         img {
             border: 1px solid;
             width: 100px;
@@ -38,14 +43,19 @@
         ul {
             display: flex;
             justify-content: center;
-            color: #ffffff;
-            
+            width: 960px;
+            margin: 0 auto;
+            text-align: center;
             li {
-                padding: 10px 60px;
+                padding: 10px 0;
                 border-right: 1px solid #ffffff;
                 font-size: 16px;
+                width: 25%;
                 &:nth-child(1) {
                     border-left: 1px solid #ffffff;
+                }
+                a {
+                    color: #ffffff;
                 }
             }
         }
