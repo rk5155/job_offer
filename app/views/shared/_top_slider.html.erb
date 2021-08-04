@@ -1,69 +1,17 @@
 <section class="p-slider">
-  <p>お知らせ</p>
+  <a href="" class="p-slider__text">お知らせ</a>
   
   <ul class="p-slider__list">
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
+    <% @scraping.last(9).each do |data| %>
+      
+      <li class="p-slider__item">
+        <a href="/scrapings/<%= data.id %>">
+          <%= image_tag data.image %>
+          <p><%= data.title %></p>
+        </a>
+      </li>
 
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
-
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
-
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
-
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
-
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
-
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
-
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
-
-    <li class="p-slider__item">
-      <a href="#">
-        <%= image_tag 'pencily192.png' %>
-        <p>テキストテキストテキストテキストテキスト</p>
-      </a>
-    </li>
+    <% end %>
     
   </ul>
 </section>
