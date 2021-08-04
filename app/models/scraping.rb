@@ -1,6 +1,8 @@
 # require 'mechanize'
 
 class Scraping < ApplicationRecord
+    mount_uploader :image, ImageUploader
+    
     # rails c で Scraping.scrape を実行すればScrapingデータベースに保存できる
     def self.scrape
         agent = Mechanize.new
