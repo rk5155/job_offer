@@ -1,5 +1,16 @@
 //= require jquery
-$(function() {
+
+document.addEventListener("turbolinks:load", function() {
+    $('.p-slider ul').slick({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        dots: true,
+        slidesToShow: 6,
+        slidesToScroll: 4,
+        // centerMode: true
+    });
+
+
     $('.p-work-location__list li').click(function() {
         let prefectures = $(this).attr("id");
 
@@ -31,5 +42,4 @@ $(function() {
             $(".p-work-location__list").fadeIn();
         })
     })
-
-});
+})
