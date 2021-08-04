@@ -3,6 +3,14 @@ class ScrapingsController < ApplicationController
 
   def index
     @scraping = Scraping.all
+    
+    @hokaido = Scraping.where("location LIKE ?", "%北海道%")
+    @tokyo = Scraping.where("location LIKE ?", "%東京%")
+    @aichi = Scraping.where("location LIKE ?", "%愛知%")
+    @osaka = Scraping.where("location LIKE ?", "%大阪%")
+    @hukuoka = Scraping.where("location LIKE ?", "%福岡%")
+    @okinawa = Scraping.where("location LIKE ?", "%沖縄%")
+
   end
 
   def search

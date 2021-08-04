@@ -1,5 +1,24 @@
+@import "../../foundation/variable.scss";
+
 .c-btn__return {
     display: block;
+    position: relative;
+    padding-left: 14px;
+    &::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border: 0px;
+        border-top: solid 2px $mainColor;
+        border-right: solid 2px $mainColor;
+        -ms-transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+        position: absolute;
+        top: 25%;
+        left: 0px;
+        z-index: 10;
+    }
 }
 .c-btn__search {
     background-color: #2484D3;
