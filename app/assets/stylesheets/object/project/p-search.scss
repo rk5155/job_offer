@@ -1,4 +1,8 @@
 .p-search {
     width: 960px;
     margin: 50px auto;
+    .scraping_search {
+        display: flex;
+        justify-content: space-between;
+    }
 }

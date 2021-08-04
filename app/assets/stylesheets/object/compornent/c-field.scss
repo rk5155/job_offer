@@ -1,0 +1,14 @@
+@import "../../foundation/variable.scss";
+
+.c-field__free {
+    width: 200px;
+    padding: 0 20px;
+    height: 36px;
+    border: 1px solid $baseColor1;
+}
+
+.c-field__prefectures {
+    width: 320px;
+    padding: 10px;
+    border: 1px solid $baseColor1;
+}

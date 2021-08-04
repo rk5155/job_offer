@@ -1,15 +1,13 @@
 <section class="p-search">
 <%= search_form_for @q, url: scrapings_search_path do |f| %>
-  <%= f.label :name_cont_any, '職種、業種、働き方など' %>
-  <%= f.search_field :name_cont_any %>
-  
-  <%= f.label :status_cont, '雇用形態' %>
-  <%= f.select :status_cont, [['正社員', '正社員'], ['契約社員', '契約社員'], ['業務委託', '業務委託'], ['アルバイト', 'アルバイト']], {include_blank: '選択なし'}, class: 'sample' %>
 
-  <%= f.label :location_cont_any, '都道府県、市町村区、駅名' %>
-  <%= f.search_field :location_cont_any %>
+  <%= f.select :status_cont, [['正社員', '正社員'], ['契約社員', '契約社員'], ['業務委託', '業務委託'], ['アルバイト', 'アルバイト']], {include_blank: '働き方・雇用形態'}, class: 'c-select__status' %>
 
-  <%= f.submit '検索' %>
+  <%= f.search_field :name_cont_any, placeholder: "職種、業種、働き方など", class: "c-field__free" %>
+
+  <%= f.search_field :location_cont_any, placeholder: "都道府県、市町村区、駅名", class: "c-field__prefectures" %>
+
+  <%= f.submit '検索', class: "c-btn__search" %>
 <% end %>
 </section>
 
