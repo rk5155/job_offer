@@ -8,7 +8,7 @@ class ScrapingsController < ApplicationController
   def search
     #:qは検索窓に入力された値をパラメータで取得
     # name_cont_any location_cont_any をスペース区切りで配列にし、複数検索
-    勤務地から探すを押した時、name_cont_any がnilだとエラーになるから
+    # 勤務地から探すを押した時、name_cont_any がnilだとエラーになるから
     if params[:q]['name_cont_any'] != nil
       params[:q]['name_cont_any'] = params[:q]['name_cont_any'].split(/[\p{blank}\s]+/)
     end
@@ -51,7 +51,7 @@ class ScrapingsController < ApplicationController
     if @scraping.save
         # 保存の成功をここで扱う。
         flash[:success] = "登録しました。"
-        render 'index'
+        render 'new'
     else
         render 'new'
     end
