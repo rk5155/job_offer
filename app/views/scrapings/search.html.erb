@@ -1,34 +1,40 @@
 <div class="p-result">
-    <p>転職・求人情報: <%= @results.length %>件</p>
-    <p>検索条件: <%= params[:q]['location_cont_any'] %><%= params[:q]['name_cont_any'] %><%= params[:q]['status_cont'] %></p>
+    <p class="p-result__text">転職・求人情報: <%= @results.length %>件</p>
 
     <article>
         <% @results.each do |data| %>
             <% if data.url === nil %>
                 <section class="p-result__item">
                     <a href="/scrapings/<%= data.id %>" target="_blank" rel="noopener noreferrer">
-                        <%= data.name %></p>
+                        <h2><%= data.title %></h2>
+
+                        <p><%= data.name %></p>
+
+                        <p><%= data.salary %><%= data.under %>〜<%= data.up %></p>
 
                         <% if data.status.class === "string" %>
-                        <% data.status.split(",").each do |ele| %>
-                            <p><%= ele.delete("[").delete("]").delete("\"") %></p>
-                        <% end %>
+                            <% data.status.split(",").each do |ele| %>
+                                <p><%= ele.delete("[").delete("]").delete("\"") %></p>
+                            <% end %>
                         <% else %>
-                        <p><%= data.status %></p>
+                            <p><%= data.status %></p>
                         <% end %>
-                        
+
+                          
                         <p><%= data.location %></p>
-                        <hr>
                     </a>
                 </section>
 
             <% else %>
                 <section class="p-result__item">
                     <a href="<%= data.url %>" target="_blank" rel="noopener noreferrer">
-                        <p><%= data.name %></p>
+                        <h2><%= data.name %></h2>
+
+                        <p><%= data.location.strip.truncate(50) %></p>
+
+                        <p><%= data.salary.strip.truncate(50) %></p>
+
                         <p><%= data.status %></p>
-                        <p><%= data.location %></p>
-                        <hr>
                     </a>
                 </section>
             <% end %>
