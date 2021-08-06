@@ -30,9 +30,13 @@
                     <a href="<%= data.url %>" target="_blank" rel="noopener noreferrer">
                         <h2><%= data.name %></h2>
 
-                        <p><%= data.location.strip.truncate(50) %></p>
+                        <% if data.location %>
+                            <p><%= data.location.strip.truncate(50) %></p>
+                        <% end %>
 
-                        <p><%= data.salary.strip.truncate(50) %></p>
+                        <% if data.salary %>
+                            <p><%= data.salary.strip.truncate(50) %></p>
+                        <% end %>
 
                         <p><%= data.status %></p>
                     </a>
