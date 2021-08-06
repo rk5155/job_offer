@@ -20,11 +20,15 @@ class ScrapingsController < ApplicationController
     if params[:q]['name_cont_any'] != nil
       params[:q]['name_cont_any'] = params[:q]['name_cont_any'].split(/[\p{blank}\s]+/)
     end
+
+    if params[:q]['location_cont_any'] != nil
+      params[:q]['location_cont_any'] = params[:q]['location_cont_any'].split(/[\p{blank}\s]+/)
+    end
     
-    params[:q]['location_cont_any'] = params[:q]['location_cont_any'].split(/[\p{blank}\s]+/)
     
     @q = Scraping.ransack(params[:q])
-    @results = @q.result
+    @total = @q.result.length
+    @results = @q.result.page(params[:page]).per(15)
   end
 
   def set_q
