@@ -1,25 +1,39 @@
 <% provide(:title, @scraping.name) %>
 
-<h2>求人詳細ページ</h2>
+<div>
+  <p><%= @scraping.name %></p>
+  <h2><%= @scraping.title %></h2>
+  <p><%= @scraping.status %></p>
+  <p><%= @scraping.salary %> <%= @scraping.under %>〜<%= @scraping.up %></p>
+  <p><%= @scraping.location1 %></p>
+
+</div>
 
 <div class="">
-  <aside class="">
-    <section class="">
-        <p><%= @scraping.name %></p>
-        <p><%= @scraping.location %></p>
-        <p><%= @scraping.salary %></p>
-        <p><%= @scraping.holiday %></p>
-        <p><%= @scraping.company_id %></p>
+  <div>
+    <h3>仕事内容</h3>
+    <p><%= @scraping.content %></p>
+  </div>
 
-        <style>
-          a {
-              color: black!important;
-          }
-        </style>
+  <div>
+    <h3>勤務地・交通</h3>
+    <p><%= @scraping.location1 %></p>
+  </div>
+
+  <div>
+    <h3>給与・報酬</h3>
+    <p><%= @scraping.location1 %></p>
+  </div>
 
 
-        <%= link_to "応募ページへ", new_apply_path(id: @scraping.company_id) %>
+  <p><%= @scraping.location %></p>
+  <p><%= @scraping.salary %></p>
+  <p><%= @scraping.holiday %></p>
+  <p><%= @scraping.company_id %></p>
+
+  
+
+
+  <%= link_to "応募ページへ", new_apply_path(id: @scraping.company_id) %>
         
-    </section>
-  </aside>
 </div>
