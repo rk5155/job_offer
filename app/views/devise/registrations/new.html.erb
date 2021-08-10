@@ -1,52 +1,68 @@
-<% @path = request.fullpath %>
+<div class="p-register">
+  <div class="p-register__left">
+    <h2>求人会員サービスのメリット</h2>
 
-<% if @path == "/user_devises/sign_up" %>
-  <h2>新規ユーザー会員登録</h2>
-<% else %>
-  <h2>新規企業会員登録</h2>
-<% end %>
+    <h3>応募が簡単、手間いらず</h3>
+    <p>プロフィール情報を保存して効率的に求人に応募ができます。</p>
 
+    <h3>おすすめ求人メールが届く</h3>
+    <p>希望条件を入力すると希望にマッチした求人が毎日配信されます。</p>
 
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <h3>応募した求人が保存できる</h3>
+    <p>過去に応募した求人がいつでも確認できます。</p>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="p-register__right">
+    <% @path = request.fullpath %>
+
+    <% if @path == "/user_devises/sign_up" %>
+      <h2>新規ユーザー会員登録</h2>
+    <% else %>
+      <h2>新規企業会員登録</h2>
+    <% end %>
+
+
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="p-register__field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="p-register__field">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %>文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="p-register__field">
+        <%= f.label :パスワード確認 %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      
+      <div class="p-register__actions">
+        <p><a href="">利用規約</a>に同意して</p>
+        <%= f.submit "登録する", class: "c-btn__register u-mtb20" %>
+        <p>すでに登録されている方は<a href="/user_devises/sign_in">こちら</a></p>
+
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+
+    <% if @path == "/user_devises/sign_up" %>
+      <p>企業会員登録は<a href="/companies/sign_up">こちら</a></p>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  
 
 
 
-
-<%
-=begin%>
- url が /user_devises/sign_up だったら 
-<%
-=end%>
-
-<% if @path == "/user_devises/sign_up" %>
-  <a href="/companies/sign_up" style="color: black">企業会員登録はこちら</a>
-<% end %>
-
+</div>
 
