@@ -1,0 +1,31 @@
+@import "../../foundation/variable.scss";
+
+.p-login {
+    width: 50%;
+    margin: 300px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    a {
+        color: $linkColor;
+    }
+    p {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+.p-login__field {
+    input {
+        width: 100%;
+        margin-bottom: 12px;
+        height: 26px;
+    }
+}
+.p-login__actions {
+    text-align: center;
+    margin: 20px 0;
+}

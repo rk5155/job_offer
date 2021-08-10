@@ -1,38 +1,45 @@
-<% @path = request.fullpath %>
+<div class="p-login">
+  <% @path = request.fullpath %>
 
-<% if @path == "/user_devises/sign_in" %>
-  <h2>ユーザーログイン</h2>
-<% else %>
-  <h2>企業ログイン</h2>
-<% end %>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
+  <% if @path == "/user_devises/sign_in" %>
+    <h2>ユーザーログイン</h2>
+  <% else %>
+    <h2>企業ログイン</h2>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="p-login__field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="p-login__field">
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <p>パスワードを忘れた方は<a href="/user_devises/password/new">こちら</a></p>
+
+    
+    <%# <% if devise_mapping.rememberable? %> 
+      <%# <div class="p-login__field"> 
+        <%= f.check_box :remember_me %>
+        <%# <%= f.label :remember_me %> 
+      <%# </div> %>
+    <%# <% end %> 
+
+    <div class="p-login__actions">
+      <%= f.submit "ログイン", class: "c-btn__register" %>
+    </div>
+
+    <p class="u-mb10">新規登録は<a href="/user_devises/sign_up">こちら</a></p>
+  <% end %>
+
+  
+  <%# 
+  <%= render "devise/shared/links" %>
 
 
 
-<% if @path == "/user_devises/sign_in" %>
-  <a href="/companies/sign_in" style="color: black">企業ログインはこちら</a>
-<% end %>
+  <% if @path == "/user_devises/sign_in" %>
+    <p>企業ログインは<a href="/companies/sign_in"">こちら</a></p>
+  <% end %>
+</div>
