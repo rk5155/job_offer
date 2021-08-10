@@ -2,7 +2,10 @@
   <div id="error_explanation">
     <ul>
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <% message = message.gsub("Email","メールアドレス") %>
+        <% message = message.gsub("Password","パスワード") %>
+        <% message = message.gsub("パスワード confirmationとパスワードの入力が一致しません","パスワードの入力が一致しません") %>
+        <li class="c-alert--red"><%= message %></li>
       <% end %>
     </ul>
   </div>

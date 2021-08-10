@@ -16,6 +16,15 @@
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
 
+    <% flash.each do |message_type, message| %>
+      <% 
+        if message === "Emailまたはパスワードが違います。" 
+          message = "メールアドレスまたはパスワードが違います。"
+        end
+      %>
+      <p class="c-alert--red alert-<%= message_type %>"><%= message %></p>
+    <% end %>
+
     <p>パスワードを忘れた方は<a href="/user_devises/password/new">こちら</a></p>
 
     
