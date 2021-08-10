@@ -5,6 +5,11 @@ body {
     background-color: $baseColor1;
     color: #333333;
     font-family: 'Meiryo', 'MS PGothic', sans-serif !important;
+    position: relative;
+    min-height: 100vh;
+    // footer の高さ分
+    padding-bottom: 400px!important;
+    box-sizing: border-box;
 }
 a {
     color: #ffffff;
