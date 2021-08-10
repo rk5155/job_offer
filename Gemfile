@@ -14,6 +14,8 @@ gem 'mechanize'
 gem 'carrierwave'
 
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 # 検索機能
 gem 'ransack'
