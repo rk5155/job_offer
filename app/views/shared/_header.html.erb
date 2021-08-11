@@ -20,7 +20,7 @@
                 <li><%= link_to 'プロフィール変更', edit_company_registration_path %></li>
                 <li><a href="/companies/<%= current_company.id %>">マイページ</a></li>
                 <li><a href="/companies/applies">応募者一覧</a></li>
-                <%= current_company.email %>
+                <li style="color: white;"><%= current_company.email %></li>
                 <% else %>
                 <li><%= link_to 'ログイン', new_user_devise_session_path %></li>
                 <li><%= link_to 'サインアップ', new_user_devise_registration_path %></li>
