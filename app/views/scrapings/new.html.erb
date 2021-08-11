@@ -1,92 +1,134 @@
-<% provide(:title, 'Sign up') %>
-<h1>求人投稿</h1>
+<div class="p-job-posting">
+  <h2 class="c-heading__h2--bold">求人投稿</h2>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+
+  <%= form_for(@scraping) do |f| %>
+      <section class="p-job-posting__job">
+        <h3 class="c-heading__h2--500">仕事について</h3>
+
+        <%= f.label :勤務先名 %>
+        <%= f.text_field :name, placeholder: "例）居酒屋カカク　恵比寿店／株式会社求人" %>
+
+        <%= f.label :求人タイトル %>
+        <%= f.text_field :title, placeholder: "例）居酒屋のホールスタッフ／オフィス用品のルート営業　※具体的な職種を記入" %>
+
+        <%= f.label :職種区分 %>
+        <%= f.select :section, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+
+        <%= f.label :雇用形態 %>
+        <div class="p-job-posting__box">
+          <div class="p-job-posting__check">
+            <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "正社員", nil %>
+            <span>正社員</span>
+          </div>
+
+          <div class="p-job-posting__check">
+            <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "アルバイト・パート", nil %>
+            <span>アルバイト・パート</span>
+          </div>
+
+          <div class="p-job-posting__check">
+            <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "契約社員", nil %>
+            <span>契約社員</span>
+          </div>
+
+          <div class="p-job-posting__check">
+            <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "業務委託", nil %>
+            <span>業務委託</span>
+          </div>
+
+          <div class="p-job-posting__check">
+            <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "新卒・インターン", nil %>
+            <span>新卒・インターン</span>
+          </div>
+
+          <div class="p-job-posting__check">
+            <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "派遣社員", nil %>
+            <span>派遣社員</span>
+          </div>
+
+          <div class="p-job-posting__check">
+            <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "紹介予定派遣", nil %>
+            <span>紹介予定派遣</span>
+          </div>
+        </div>
+        
+
+        <%= f.label :仕事内容 %>
+        <%= f.text_area :content, placeholder: "例）お客様のご案内・オーダー取り・料理や飲み物の提供・レジ対応・後片付けなど、ホール業務全般をお任せします。" %>
+
+        <%= f.label :企業ID %>
+        <%= f.text_area :company_id, :value =>"#{@id}" %>
+        
+
+        <%= f.label :この仕事のやりがい %>
+        <%= f.text_area :rewarding, placeholder: "例）常連のお客様が増えてきたので、「いつもありがとう、今日も美味しかった」と感謝の言葉をいただくことが多く、喜びとともにやりがいを感じることができます。" %>
+
+        <%= f.label :対象となる方 %>
+        <%= f.text_area :target, placeholder: "例）未経験の方でも大歓迎です。ただし、18時～24時の勤務となりますので、18歳未満の方はご遠慮ください。" %>
+
+        <%= f.label :写真 %>
+        <%= f.file_field :image %>
+      </section>
+      
+
+      
+      <section class="p-job-posting__terms">
+        <h3 class="c-heading__h2--500">働く条件について</h3>
+        <%= f.label :勤務地 %>
+        <%= f.text_field :location1, placeholder: "例）東京都渋谷区恵比寿南3-5-7 デジタルゲートビル" %>
+        <%= f.text_field :location2 %>
+        <%= f.text_field :location3 %>
+        <%= f.text_field :location4 %>
+        <%= f.text_field :location5 %>
+
+        <%= f.label :交通手段 %>
+        <%= f.text_area :transportation, placeholder: "例）(1)JR、東京メトロ日比谷線「恵比寿駅」徒歩10分　(2)東急東横線「代官山駅」徒歩5分　　JR、東京メトロ日比谷線 恵比寿駅 徒歩5分。自転車通勤ご相談ください。" %>
+
+        <%= f.label :給与 %>
+        <%= f.select :salary, {'時給': "時給", '月給': "月給", '日給': "日給", '年収': "年収", '固定報酬': "固定報酬", }, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+        <%= f.label :下限 %>
+        <%= f.text_field :under %>
+        <%= f.label :上限 %>
+        <%= f.text_field :up %>
+
+        <%= f.label :給与補足 %>
+        <%= f.text_area :supplement, placeholder: "例）時給1,500円～+交通費全額　※週払いOK　　【年収例】 500万円（月給25万円+諸手当+賞与+インセンティブ）" %>
+
+        <%= f.label :勤務時間・休日 %>
+        <%= f.text_area :conditions, placeholder: "例）9:00～17:00　※週3日～1日5時間～OK　　完全週休2日制（土日）、祝日、夏期・年末年始休暇、有給休暇" %>
+      </section>
+
+      <section class="p-job-posting__selection">
+        <h3 class="c-heading__h2--500">応募・選考について</h3>
+
+        <div class="p-job-posting__wrapper">
+          <%= f.label :必要項目 %>
+          <%= f.radio_button :application, "氏名・連絡先のみ" %> 氏名・連絡先のみ
+          <%= f.radio_button :application, "基本情報" %> 基本情報
+          <%= f.radio_button :application, "基本情報 + 職務経歴" %> 基本情報 + 職務経歴
+        </div>
+        
+
+
+        <%= f.label :応募受付の電話番号 %>
+        <%= f.text_field :number, placeholder: "例）0312345678" %>
+
+        <%= f.label :選考について %>
+        <%= f.text_area :selection, placeholder: "応募後の選考の流れや必要書類について記入します。また、求人ボックス以外からの応募方法があれば記入します。" %>
+      </section>
+
+      <%= f.submit "登録", class: "btn btn-primary" %>
+      
+    <% end %>
+</div>
+
+
+
 
     
   
-    <%= form_for(@scraping) do |f| %>
-      <h2>仕事について</h2>
-
-      <%= f.label :勤務先名 %>
-      <%= f.text_field :name %><br><br>
-
-      <%= f.label :求人タイトル %>
-      <%= f.text_field :title %><br><br>
-
-      <%= f.label :職種区分 %>
-      <%= f.select :section, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
-
-      <%= f.label :雇用形態 %>
-      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "正社員", nil %>正社員
-      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "アルバイト・パート", nil %>アルバイト・パート
-      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "契約社員", nil %>契約社員
-      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "業務委託", nil %>業務委託
-      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "新卒・インターン", nil %>新卒・インターン
-      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "派遣社員", nil %>派遣社員
-      <%= f.check_box :status, {multiple: true, checked: false, disabled: false, include_hidden: false }, "紹介予定派遣", nil %>紹介予定派遣<br><br>
-
-      <%= f.label :仕事内容 %>
-      <%= f.text_area :content %><br><br>
-
-      <%= f.label :企業ID %>
-      <%= f.text_area :company_id, :value =>"#{@id}" %><br><br>
-
-
-      <%= f.label :この仕事のやりがい %>
-      <%= f.text_area :rewarding %><br><br>
-
-      <%= f.label :対象となる方 %>
-      <%= f.text_area :target %><br><br>
-
-      <%= f.label :写真 %>
-      <%= f.file_field :image %><br><br>
-
-      
-
-      <%= f.label :勤務地 %>
-      <%= f.text_field :location1 %><br><br>
-      <%= f.text_field :location2 %><br><br>
-      <%= f.text_field :location3 %><br><br>
-      <%= f.text_field :location4 %><br><br>
-      <%= f.text_field :location5 %><br><br>
-
-      <%= f.label :交通手段 %>
-      <%= f.text_area :transportation %><br><br>
-
-      <%= f.label :給与 %>
-      <%= f.text_field :salary %><br><br>
-      <%= f.text_field :under %><br><br>
-      <%= f.text_field :up %><br><br>
-
-      <%= f.label :給与補足 %>
-      <%= f.text_area :supplement %><br><br>
-
-      <%= f.label :勤務時間・休日 %>
-      <%= f.text_area :conditions %><br><br>
-
-      
-
-      <%= f.label :必要項目 %>
-      <%= f.radio_button :application, "氏名・連絡先のみ" %> 氏名・連絡先のみ
-      <%= f.radio_button :application, "基本情報" %> 基本情報
-      <%= f.radio_button :application, "基本情報 + 職務経歴" %> 基本情報 + 職務経歴<br><br>
-
-
-      <%= f.label :応募受付の電話番号 %>
-      <%= f.text_area :number %><br><br>
-
-      <%= f.label :選考について %>
-      <%= f.text_area :selection %><br><br>
-      
-
-      <%= f.submit "登録", class: "btn btn-primary" %>
-
-      
-      
-    <% end %>
+    
 
     
-  </div>
-</div>
+  
