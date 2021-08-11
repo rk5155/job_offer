@@ -1,0 +1,25 @@
+@import "../../foundation/variable.scss";
+
+.p-companies {
+    h2 {
+        margin: 40px 0 20px;
+    }
+    table {
+        width: 100%;
+        background-color: #ffffff;
+        border: 1px solid $light_gray;
+        th {
+            width: calc(100% / 3);
+        }
+        
+        td {
+            border-right: 1px solid $light_gray;
+            padding: 30px 20px;
+        }
+    }
+}
+.p-companies__job {
+    ul {
+        margin: 50px 0;
+    }
+}

@@ -5,3 +5,23 @@
     padding: 6px;
     margin-bottom: 16px;
 }
+.c-heading__h2--bold {
+    font-weight: bold;
+    font-size: 22px;
+}
+.c-heading__th {
+    position: relative;
+    text-align: left;
+    padding-left: 34px;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        width: 5px;
+        height: 20px;
+        margin-top: -10px;
+        background: $mainColor;
+    }
+}

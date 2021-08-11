@@ -1,14 +1,38 @@
-<%= @company.id %><br>
-<%= @company.email %><br><br>
+<div class="p-companies">
+    <section class="p-companies__situation">
+        <h2 class="c-heading__h2--bold">利用状況</h2>
+        <table>
+            <tr>
+                <th class="c-heading__th">公開求人数</th>
+                <td>0</td>
 
-<style>
-a {
-    color: black!important;
-}
-</style>
-<%= link_to "求人作成", new_scraping_path(id: @company) %>
+                <th class="c-heading__th">閲覧数</th>
+                <td>0</td>
 
-<% @company.applies.each do |apply| %>
-    <p><%= apply.email %></p>
-<% end %>
+                <th class="c-heading__th">応募数</th>
+                <td>0</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="p-companies__job">
+        <h2 class="c-heading__h2--bold">求人一覧</h2>
+        <%= link_to "新しい求人を作成", new_scraping_path(id: @company), class: "c-btn__job-create" %>
+
+        <ul>
+            <% @job_list.each do |job| %>
+                <li><%= job.name %></li>
+            <% end %>
+        </ul>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
 
