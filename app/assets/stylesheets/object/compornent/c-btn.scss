@@ -41,3 +41,13 @@
     padding: 10px 30px;
     background-color: $mainColor;
 }
+.c-btn__to-application {
+    display: block;
+    background-color: $applicationColor;
+    width: 300px;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    font-weight: bold;
+}
