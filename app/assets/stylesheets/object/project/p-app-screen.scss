@@ -1,0 +1,28 @@
+@import "../../foundation/variable.scss";
+
+.p-app-screen {
+    margin: 50px 0;
+}
+.p-app-screen__title {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 3px solid $light_gray;
+    margin-bottom: 30px;
+}
+.p-app-screen__field {
+    display: flex;
+    margin-bottom: 10px;
+    label {
+        width: 30%;
+        background-color: $light_gray;
+        padding: 10px 0;
+        text-align: center;
+        margin-bottom: 4px;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+    input {
+        width: 70%;
+        height: 28px;
+    }
+}

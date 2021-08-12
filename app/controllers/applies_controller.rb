@@ -3,6 +3,8 @@ class AppliesController < ApplicationController
   def new
       @apply = Apply.new
       @id = params[:id]
+      @name = params[:name]
+      @title = params[:title]
   end
 
   def create

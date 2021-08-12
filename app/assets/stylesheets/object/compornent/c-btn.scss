@@ -42,12 +42,18 @@
     background-color: $mainColor;
 }
 .c-btn__to-application {
-    display: block;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: $applicationColor;
     width: 300px;
-    padding: 20px 0;
     text-align: center;
     border-radius: 10px;
     margin: 0 auto;
     font-weight: bold;
+    border: none;
+    font-size: 18px;
+    height: 58px;
+    cursor: pointer;
 }
