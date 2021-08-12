@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :resumes
   resources :jobs
   resources :applies
+  get  "applies/completion"  => "applies#completion"
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

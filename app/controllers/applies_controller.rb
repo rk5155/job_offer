@@ -12,11 +12,15 @@ class AppliesController < ApplicationController
       @apply = Apply.new(apply_params)
       
       if @apply.save
-          flash[:success] = "Welcome!!!!!!!!!!!"
           ContactMailer.applied(@apply).deliver
+          render 'completion'
       else
           render 'new'
       end
+  end
+
+  def completion
+      
   end
 
   
