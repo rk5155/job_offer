@@ -1,1 +1,80 @@
+<div class="p-users">
+    <div class="p-users__left">
+        <ul>
+            <li>会員情報</li>
+            <li>応募した求人</li>
+        </ul>
+    </div>
+
+    <div class="p-users__right">
+
+        <div class="p-users__box">
+            <h2 class="c-heading__h2--bold u-mb20">アカウント情報</h2>
+            <dl>
+                <dt>メールアドレス</dt>
+                <dd class="u-mb20"><%= @user_devise.email %></dd>
+
+                <dt>パスワード</dt>
+                <dd>●●●●●●●●</dd>
+            </dl>
+
+            <button class="c-btn__change u-mt50"><%= link_to "変更", edit_user_devise_registration_path %></button>
+        </div>
+
+        <div class="p-users__box">
+            <h2 class="c-heading__h2--bold u-mb20">プロフィール</h2>
+            
+            <table>
+                <tbody>
+                    <tr>
+                        <th>氏名</th>
+                        <td>sss</td>
+                    </tr>
+                    <tr>
+                        <th>ふりがな</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>生年月日</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>性別</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>現在の職業</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>直近の職務経歴</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>電話番号</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>住所</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>学校名</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>備考・PR</th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="c-btn__change u-mt50"><%= link_to "変更", edit_user_devise_registration_path %></button>
+        </div>
+
+        
+    </div>
+</div>
+
+
 <p style="margin: 50px 0;"><%= @user_devise.email %></p>

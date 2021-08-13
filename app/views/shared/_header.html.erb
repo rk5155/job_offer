@@ -11,19 +11,19 @@
                 <li><a href="">サイトマップ</a></li>
                 <li><a href="">ヘルプ</a></li>
                 <% if user_devise_signed_in? %>
-                <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
-                <li><%= link_to 'プロフィール変更', edit_user_devise_registration_path %></li>
-                <li><a href="">マイページ</a></li>
-                <li style="color: white;"><%= current_user_devise.email %></li>
+                    <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
+                    <li><%= link_to 'プロフィール変更', edit_user_devise_registration_path %></li>
+                    <li><a href="/user_devises/<%= current_user_devise.id %>">マイページ</a></li>
+                    <li style="color: white;"><%= current_user_devise.email %></li>
                 <% elsif company_signed_in? %>
-                <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete %></li>
-                <li><%= link_to 'プロフィール変更', edit_company_registration_path %></li>
-                <li><a href="/companies/<%= current_company.id %>">マイページ</a></li>
-                <li><a href="/companies/applies">応募者一覧</a></li>
-                <li style="color: white;"><%= current_company.email %></li>
+                    <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete %></li>
+                    <li><%= link_to 'プロフィール変更', edit_company_registration_path %></li>
+                    <li><a href="/companies/<%= current_company.id %>">マイページ</a></li>
+                    <li><a href="/companies/applies">応募者一覧</a></li>
+                    <li style="color: white;"><%= current_company.email %></li>
                 <% else %>
-                <li><%= link_to 'ログイン', new_user_devise_session_path %></li>
-                <li><%= link_to 'サインアップ', new_user_devise_registration_path %></li>
+                    <li><%= link_to 'ログイン', new_user_devise_session_path %></li>
+                    <li><%= link_to 'サインアップ', new_user_devise_registration_path %></li>
                 <% end %>
             </ul>
         </div>
