@@ -18,7 +18,7 @@
                 <dd>●●●●●●●●</dd>
             </dl>
 
-            <button class="c-btn__change u-mt50"><%= link_to "変更", edit_user_devise_registration_path %></button>
+            <button class="c-btn__change u-mt50"><%= link_to "変更", edit_user_devise_registration_path(name: "アカウント情報変更") %></button>
         </div>
 
         <div class="p-users__box">
@@ -28,48 +28,44 @@
                 <tbody>
                     <tr>
                         <th>氏名</th>
-                        <td>sss</td>
+                        <td><%= @user_devise.name %></td>
                     </tr>
                     <tr>
                         <th>ふりがな</th>
-                        <td></td>
+                        <td><%= @user_devise.furigane %></td>
                     </tr>
                     <tr>
                         <th>生年月日</th>
-                        <td></td>
+                        <td><%= @user_devise.birthday %></td>
                     </tr>
                     <tr>
                         <th>性別</th>
-                        <td></td>
+                        <td><%= @user_devise.sex %></td>
                     </tr>
                     <tr>
                         <th>現在の職業</th>
-                        <td></td>
+                        <td><%= @user_devise.profession %></td>
                     </tr>
                     <tr>
                         <th>直近の職務経歴</th>
-                        <td></td>
+                        <td><%= @user_devise.career %></td>
                     </tr>
                     <tr>
                         <th>電話番号</th>
-                        <td></td>
+                        <td><%= @user_devise.number %></td>
                     </tr>
                     <tr>
                         <th>住所</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>学校名</th>
-                        <td></td>
+                        <td><%= @user_devise.address %></td>
                     </tr>
                     <tr>
                         <th>備考・PR</th>
-                        <td></td>
+                        <td><%= @user_devise.pr %></td>
                     </tr>
                 </tbody>
             </table>
 
-            <button class="c-btn__change u-mt50"><%= link_to "変更", edit_user_devise_registration_path %></button>
+            <button class="c-btn__change u-mt50"><%= link_to "変更", edit_user_devise_registration_path(name: "プロフィール変更") %></button>
         </div>
 
         
