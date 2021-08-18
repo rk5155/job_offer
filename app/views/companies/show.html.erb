@@ -4,13 +4,13 @@
         <table>
             <tr>
                 <th class="c-heading__th">公開求人数</th>
-                <td>0</td>
+                <td><%= @job_list.length %></td>
 
                 <th class="c-heading__th">閲覧数</th>
-                <td>0</td>
+                <td><%=  %></td>
 
                 <th class="c-heading__th">応募数</th>
-                <td>0</td>
+                <td><%= current_company.applies.length %></td>
             </tr>
         </table>
     </section>
