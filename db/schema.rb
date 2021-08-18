@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210730060053) do
+ActiveRecord::Schema.define(version: 20210813062610) do
 
   create_table "applies", force: :cascade do |t|
     t.string "name"
@@ -188,6 +188,15 @@ ActiveRecord::Schema.define(version: 20210730060053) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "furigane"
+    t.string "birthday"
+    t.string "sex"
+    t.string "profession"
+    t.text "career"
+    t.integer "number"
+    t.string "address"
+    t.text "pr"
     t.index ["email"], name: "index_user_devises_on_email", unique: true
     t.index ["reset_password_token"], name: "index_user_devises_on_reset_password_token", unique: true
   end

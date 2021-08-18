@@ -1,0 +1,27 @@
+.p-edit {
+    background-color: #ffffff;
+    width: 500px;
+    padding: 50px;
+    margin: 100px auto;
+}
+.p-edit__field {
+    label {
+        display: block;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    input {
+        width: 100%;
+        margin-bottom: 20px;
+        height: 30px;
+    }
+    p {
+        font-size: 14px;
+    }
+    textarea {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+}
