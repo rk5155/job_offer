@@ -22,9 +22,20 @@ class Scraping < ApplicationRecord
             scraping.url = "https://tenshoku.mynavi.jp" + url
             # 一覧ページから、格詳細ページへ移動
             details_page = page.link_with(href: url).click
+
             #取得したい要素
             title = details_page.search('.occName')
-            scraping.name = title.inner_text
+            scraping.title = title.inner_text
+
+            company_name = details_page.search('.companyName')
+            scraping.name = company_name.inner_text
+
+            content = details_page.search('.jobPointArea__wrap-jobDescription')
+            scraping.content = content.inner_text
+
+            target = details_page.search('.jobPointArea__body--large')
+            scraping.target = target.inner_text
+            
             
             details_page.css(".jobOfferTable__head").each do |ele|
               essentials_title = ele.text
