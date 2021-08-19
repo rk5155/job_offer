@@ -2,6 +2,8 @@
 
 class Scraping < ApplicationRecord
     mount_uploader :image, ImageUploader
+
+    is_impressionable
     
     # rails c で Scraping.scrape を実行すればScrapingデータベースに保存できる
     def self.scrape

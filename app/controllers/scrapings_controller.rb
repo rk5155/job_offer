@@ -1,6 +1,8 @@
 class ScrapingsController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
+  impressionist :actions=> [:show]
+
   def index
     @scraping = Scraping.all
     
@@ -42,6 +44,11 @@ class ScrapingsController < ApplicationController
 
   def show
     @scraping = Scraping.find(params[:id])
+    impressionist(@scraping, nil, unique: [:session_hash])
+    
+    # 求人詳細ページのpv数を保存
+    @scraping.pv = @scraping.impressionist_count
+    @scraping.save
   end
 
   def edit
