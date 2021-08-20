@@ -2,14 +2,21 @@
   <a href="" class="p-slider__text">お知らせ</a>
   
   <ul class="p-slider__list">
-    <% @scraping.last(9).each do |data| %>
-      
-      <li class="p-slider__item">
-        <a href="/scrapings/<%= data.id %>">
-          <%= image_tag data.image %>
-          <p><%= data.title %></p>
-        </a>
-      </li>
+    <% @count = 0 %>
+
+    <% @scraping.shuffle.each do |data| %>
+
+      <% if data.company_id && @count < 20 %>
+        <% @count += 1 %>
+
+        <li class="p-slider__item">
+          <a href="/scrapings/<%= data.id %>">
+            <%= image_tag data.image %>
+            <p><%= data.title %></p>
+          </a>
+        </li>
+        
+      <% end %>
 
     <% end %>
     
