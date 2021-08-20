@@ -57,7 +57,6 @@ class UserDevises::RegistrationsController < Devise::RegistrationsController
 
   #アカウント情報、プロフィール編集後のリダイレクト先
   def after_update_path_for(resource)
-    p "斎藤飛鳥"
     # マイページへ遷移
     user_devise_path(resource.id)
   end

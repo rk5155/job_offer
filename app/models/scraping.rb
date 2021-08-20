@@ -25,55 +25,55 @@ class Scraping < ApplicationRecord
 
             #取得したい要素
             title = details_page.search('.occName')
-            scraping.title = title.inner_text
+            scraping.title = title.inner_text.gsub(" ", "")  
 
             company_name = details_page.search('.companyName')
-            scraping.name = company_name.inner_text
+            scraping.name = company_name.inner_text.gsub(" ", "")  
 
             content = details_page.search('.jobPointArea__wrap-jobDescription')
-            scraping.content = content.inner_text
+            scraping.content = content.inner_text.gsub(" ", "")  
 
             target = details_page.search('.jobPointArea__body--large')
-            scraping.target = target.inner_text
+            scraping.target = target.inner_text.gsub(" ", "")  
             
             
             details_page.css(".jobOfferTable__head").each do |ele|
               essentials_title = ele.text
   
               if essentials_title === "雇用形態"
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.status = text
   
               elsif essentials_title === "勤務時間"
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.time = text
   
               elsif essentials_title === "勤務地"
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.location = text
   
               elsif essentials_title === "給与"
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.salary = text
   
               elsif essentials_title === "昇給・賞与"
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.bonus = text
   
               elsif essentials_title === "諸手当"
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.allowance = text
   
               elsif essentials_title === "休日・休暇"
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.holiday = text
   
               elsif essentials_title === "福利厚生"
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.welfare = text
   
               else
-                text = ele.next.next.inner_text
+                text = ele.next.next.inner_text.gsub(" ", "")  
                 scraping.other = text
                 
               end
