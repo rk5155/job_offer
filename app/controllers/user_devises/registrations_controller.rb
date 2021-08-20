@@ -58,8 +58,7 @@ class UserDevises::RegistrationsController < Devise::RegistrationsController
   #アカウント情報、プロフィール編集後のリダイレクト先
   def after_update_path_for(resource)
     # マイページへ遷移
-    # user_devise_path(resource.id)
-    root_path
+    user_devise_path(resource.id)
   end
 
   # The path used after sign up for inactive accounts.
