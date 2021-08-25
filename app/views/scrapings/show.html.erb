@@ -12,27 +12,27 @@
 
     <section class="p-job-details__content">
       <h3 class="c-heading__h3--blue u-mb20">仕事内容</h3>
-      <p><%= @scraping.content %></p>
+      <p><%= html_safe_newline(@scraping.content) %></p>
     </section>
 
     <section class="p-job-details__content">
       <h3 class="c-heading__h3--blue u-mb20">対象となる方</h3>
-      <p><%= @scraping.target %></p>
+      <p><%= html_safe_newline(@scraping.target) %></p>
     </section>
 
     <section class="p-job-details__content">
       <h3 class="c-heading__h3--blue u-mb20">勤務地・交通</h3>
-      <p><%= @scraping.location %></p>
+      <p><%= html_safe_newline(@scraping.location) %></p>
     </section>
 
     <section class="p-job-details__content">
       <h3 class="c-heading__h3--blue u-mb20">給与・報酬</h3>
-      <p><%= @scraping.salary %>　<%= @scraping.under %>円〜<%= @scraping.up %>円</p>
+      <p><%= html_safe_newline(@scraping.salary) %></p>
     </section>
 
     <section class="p-job-details__content">
       <h3 class="c-heading__h3--blue u-mb20">勤務時間・休日</h3>
-      <p><%= @scraping.holiday %></p>
+      <p><%= html_safe_newline(@scraping.holiday) %></p>
     </section>
 
     <a class="c-btn__to-application" href="<%= @scraping.url %>" target="_blank">掲載元のページへ進む</a>
