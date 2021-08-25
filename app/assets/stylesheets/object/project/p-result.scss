@@ -8,10 +8,10 @@
 .p-result__item {
     // margin: 60px 0;
     padding: 40px 0;
-    border-bottom: 1px solid #030303;
+    border-bottom: 1px solid $mainColor;
 
     &:first-child {
-        border-top: 1px solid $light_gray;
+        border-top: 1px solid $mainColor;
     }
     h2 {
         color: #0000FF;

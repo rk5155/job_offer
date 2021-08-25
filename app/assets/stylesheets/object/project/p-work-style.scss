@@ -1,3 +1,5 @@
+@import "../../foundation/variable.scss";
+
 .p-work-style {
     margin-top: 90px;
     ul {
@@ -9,6 +11,14 @@
             margin: 20px 0;
             a {
                 color: #333333;
+                display: block;
+            }
+
+            i {
+                display: block;
+                margin-bottom: 16px;
+                font-size: 40px;
+                color: $mainColor;
             }
         }
     }
