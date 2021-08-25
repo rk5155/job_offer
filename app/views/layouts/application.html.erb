@@ -22,6 +22,16 @@
     
     <% if current_page?(root_path) %>
       <%= render 'shared/top_slider' %>
+
+      <script>
+        history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+
+        window.addEventListener('popstate', function(e) {
+              location.reload();
+        });
+       
+      </script>
+      
     <% end %>
     
 
