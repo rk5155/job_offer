@@ -52,7 +52,7 @@ class UserDevises::RegistrationsController < Devise::RegistrationsController
 
   #アカウント登録後のリダイレクト先
   def after_sign_up_path_for(resource)
-    
+    new_user_devise_session_path
   end
 
   #アカウント情報、プロフィール編集後のリダイレクト先
@@ -62,7 +62,7 @@ class UserDevises::RegistrationsController < Devise::RegistrationsController
   end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    new_user_devise_session_path
+  end
 end
