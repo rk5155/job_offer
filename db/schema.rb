@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210819014857) do
+ActiveRecord::Schema.define(version: 20210917001202) do
 
   create_table "applies", force: :cascade do |t|
     t.string "name"
@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 20210819014857) do
     t.text "supplement"
     t.text "conditions"
     t.string "application"
-    t.integer "number"
+    t.string "number"
     t.text "selection"
     t.text "content"
     t.integer "company_id"
