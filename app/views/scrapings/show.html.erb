@@ -93,7 +93,10 @@
       <p><%= @scraping.number %></p>
       <p><%= @scraping.selection %></p>
     </section>
-    <%= link_to "応募画面へ進む", new_apply_path(id: @scraping.company_id, name: @scraping.name, title: @scraping.title), class: "c-btn__to-application" %>
+
+    <% @path = request.fullpath%>
+    <%=@path.split("/")[2]%>
+    <%= link_to "応募画面へ進む", new_apply_path(id: @scraping.company_id, name: @scraping.name, title: @scraping.title, job_url: @path.split("/")[2]), class: "c-btn__to-application" %>
   <% end %>
 
 

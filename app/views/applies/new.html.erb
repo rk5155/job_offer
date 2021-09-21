@@ -27,7 +27,29 @@
         <%= f.number_field :company_id, :value =>"#{@id}" %>
       </div>
 
+      <% if user_devise_signed_in? %>
+        <div class="p-app-screen__field">
+          <%= f.label :ユーザーid %>
+          <%= f.number_field :user_id, :value =>"#{current_user_devise.id}" %>
+        </div>
+      <% end %>
+
+      <div class="p-app-screen__field">
+        <%= f.label :求人タイトル %>
+        <%= f.text_field :job_title, :value =>"#{@title}" %>
+      </div>
+
+      <div class="p-app-screen__field">
+        <%= f.label :求人URL %>
+        <%= f.text_field :job_url, :value =>"#{@job_url}" %>
+      </div>
+
+      
+
       <%= f.submit "応募する", class: "c-btn__to-application u-mt50" %>
+
+      
+      
     <% end %>
   </div>
   

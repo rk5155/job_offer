@@ -5,6 +5,7 @@ class AppliesController < ApplicationController
       @id = params[:id]
       @name = params[:name]
       @title = params[:title]
+      @job_url = params[:job_url]
   end
 
   def create
@@ -28,6 +29,6 @@ class AppliesController < ApplicationController
   private
 
   def apply_params
-      params.require(:apply).permit(:name, :number, :email, :company_id)
+      params.require(:apply).permit(:name, :number, :email, :company_id, :user_id, :job_title, :job_url)
   end
 end
