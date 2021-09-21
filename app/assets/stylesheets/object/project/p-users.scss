@@ -51,3 +51,23 @@
         }
     }
 }
+.p-users__content {
+    display: none;
+
+    ul {;
+        li {
+            padding: 30px 0;
+            border-bottom: 1px solid black;
+            a {
+                color: $linkColor;
+            }
+        }
+    }
+}
+.p-users__content--show {
+    display: block;
+}
+.p-users__tab--active {
+    background-color: $mainColor;
+    color: #ffffff;
+}
