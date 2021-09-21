@@ -1,5 +1,5 @@
 
-$(function() {
+document.addEventListener("turbolinks:load", function() {
     let tabs = $(".p-users__tab"); // tabのクラスを全て取得し、変数tabsに配列で定義
 
     $(".p-users__tab").on("click", function() { // tabをクリックしたらイベント発火
