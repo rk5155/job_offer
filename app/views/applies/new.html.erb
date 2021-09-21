@@ -28,18 +28,18 @@
       </div>
 
       <% if user_devise_signed_in? %>
-        <div class="p-app-screen__field">
+        <div class="p-app-screen__field p-app-screen__field--none">
           <%= f.label :ユーザーid %>
           <%= f.number_field :user_id, :value =>"#{current_user_devise.id}" %>
         </div>
       <% end %>
 
-      <div class="p-app-screen__field">
+      <div class="p-app-screen__field p-app-screen__field--none">
         <%= f.label :求人タイトル %>
         <%= f.text_field :job_title, :value =>"#{@title}" %>
       </div>
 
-      <div class="p-app-screen__field">
+      <div class="p-app-screen__field p-app-screen__field--none">
         <%= f.label :求人URL %>
         <%= f.text_field :job_url, :value =>"#{@job_url}" %>
       </div>
