@@ -4,7 +4,7 @@
   <ul class="p-slider__list">
     <% @count = 0 %>
 
-    <% @scraping.shuffle.each do |data| %>
+    <% @scraping.each do |data| %>
 
       <% if data.company_id && @count < 20 %>
         <% @count += 1 %>

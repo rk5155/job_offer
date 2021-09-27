@@ -4,7 +4,7 @@ class ScrapingsController < ApplicationController
   impressionist :actions=> [:show]
 
   def index
-    @scraping = Scraping.all
+    @scraping = Scraping.all.order(id: "DESC")
     
     @hokaido = Scraping.where("location LIKE ?", "%北海道%")
     @tokyo = Scraping.where("location LIKE ?", "%東京%")
