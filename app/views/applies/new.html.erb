@@ -7,20 +7,43 @@
   <div class="p-app-screen__form">
     <%= form_for(@apply) do |f| %>
 
-      <div class="p-app-screen__field">
-        <%= f.label :氏名 %>
-        <%= f.text_field :name %>
-      </div>
+      <% if user_devise_signed_in? %>
 
-      <div class="p-app-screen__field">
-        <%= f.label :電話番号 %>
-        <%= f.text_field :number %>
-      </div>
+        <div class="p-app-screen__field">
+          <%= f.label :氏名 %>
+          <%= f.text_field :name, :value =>"#{current_user_devise.name}" %>
+        </div>
+
+        <div class="p-app-screen__field">
+          <%= f.label :電話番号 %>
+          <%= f.text_field :number, :value =>"#{current_user_devise.number}" %>
+        </div>
+        
+        <div class="p-app-screen__field">
+          <%= f.label :アドレス %>
+          <%= f.email_field :email, :value =>"#{current_user_devise.email}" %>
+        </div>
+
+      <% else %>
+
+        <div class="p-app-screen__field">
+          <%= f.label :氏名 %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="p-app-screen__field">
+          <%= f.label :電話番号 %>
+          <%= f.text_field :number %>
+        </div>
+        
+        <div class="p-app-screen__field">
+          <%= f.label :アドレス %>
+          <%= f.email_field :email %>
+        </div>
+
+      <% end %>
+
       
-      <div class="p-app-screen__field">
-        <%= f.label :アドレス %>
-        <%= f.email_field :email %>
-      </div>
 
       <div class="p-app-screen__field p-app-screen__field--none">
         <%= f.label :企業id %>
