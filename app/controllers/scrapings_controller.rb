@@ -66,14 +66,7 @@ class ScrapingsController < ApplicationController
   end
 
   def create
-    image = scraping_params[:image]
-    if image != nil
-      scraping_params[:image] = image.read
-      puts 3939399399393993939393
-    end
     
-    puts scraping_params[:image]
-
     @scraping = Scraping.new(scraping_params)
     if @scraping.save
         # 保存の成功をここで扱う。
