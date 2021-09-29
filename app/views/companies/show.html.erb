@@ -1,7 +1,7 @@
 <div class="p-companies">
     <section class="p-companies__situation">
         <h2 class="c-heading__h2--bold">利用状況</h2>
-        <table>
+        <table class="p-companies__table">
             <tr>
                 <th class="c-heading__th">公開求人数</th>
                 <td><%= @job_list.length %></td>
@@ -18,12 +18,50 @@
     <section class="p-companies__job">
         <h2 class="c-heading__h2--bold">求人一覧</h2>
         <%= link_to "新しい求人を作成", new_scraping_path(id: @company), class: "c-btn__job-create" %>
+        
 
-        <ul>
-            <% @job_list.each do |job| %>
-                <li><%= job.name %></li>
-            <% end %>
-        </ul>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">求人タイトル</th>
+                        <th scope="col">勤務地</th>
+                        <th scope="col">作成日</th>
+                        <th scope="col">ステータス</th>
+                        <th>閲覧数</th>
+                        <th>応募数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @job_list.each do |job| %>
+                        <tr>
+                            <% if job.name === "" %>
+                                <th scope="row"><a href="/scrapings/<%= job.id %>/edit">未設定</a></th>
+                            <% else %>  
+                                <th scope="row"><a href="/scrapings/<%= job.id %>/edit"><%= job.name %></a></th>
+                            <% end %>
+                            
+                            <td><%= job.location1 %></td>
+
+                            <td><%= job.created_at.year %>/<%= job.created_at.month %>/<%= job.created_at.day %></td>
+
+                            <td><%=  %></td>
+
+                            <% if job.pv === nil %>
+                                <td>0</td>  
+                            <% else %>
+                                <td><%= job.pv %></td>
+                            <% end %>
+                            
+                            <td><%= Apply.where(job_url: job.id).length %></td>
+                        </tr>
+                
+                        
+                    <% end %>
+                    
+                </tbody>
+            </table>
+
+        
     </section>
 </div>
 

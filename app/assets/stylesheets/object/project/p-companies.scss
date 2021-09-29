@@ -4,7 +4,7 @@
     h2 {
         margin: 40px 0 20px;
     }
-    table {
+    .p-companies__table {
         width: 100%;
         background-color: #ffffff;
         border: 1px solid $light_gray;
@@ -19,7 +19,36 @@
     }
 }
 .p-companies__job {
-    ul {
+    table {
+        background-color: #ffffff;
         margin: 50px 0;
+        a {
+            color: $linkColor;
+        }
+        thead {
+            th {
+                padding: 20px 0;
+                font-size: 16px;
+            }
+        }
+        tbody {
+            font-size: 14px;
+            text-align: center;
+            th {
+                width: 350px;
+            }
+            td {
+                width: 120px;
+                padding: 20px 0;
+            }
+                
+            
+            tr {
+                &:nth-child(2n-1) {
+                    background-color: $light_gray;
+                }
+            }
+        }
     }
+    
 }
