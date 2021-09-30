@@ -59,4 +59,9 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   def after_inactive_sign_up_path_for(resource)
     new_company_session_path
   end
+
+  #アカウント編集後のリダイレクト先
+  def after_update_path_for(resource)
+    company_path(resource) 
+  end
 end
