@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210928074227) do
+ActiveRecord::Schema.define(version: 20210930074326) do
 
   create_table "applies", force: :cascade do |t|
     t.string "name"
@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 20210928074227) do
     t.string "section"
     t.text "rewarding"
     t.text "target"
-    t.binary "image"
+    t.string "image"
     t.string "location1"
     t.string "location2"
     t.string "location3"
