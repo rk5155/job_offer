@@ -65,4 +65,12 @@ class UserDevises::RegistrationsController < Devise::RegistrationsController
   def after_inactive_sign_up_path_for(resource)
     new_user_devise_session_path
   end
+
+
+
+  protected
+  # ユーザー情報を編集する際にパスワード無しで編集可能に
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
+  end
 end
