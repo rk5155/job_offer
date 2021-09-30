@@ -27,8 +27,6 @@ gem 'kaminari'
 # PV数計測
 gem 'impressionist', '~>1.6.1'
 
-gem 'bootstrap'
-
 gem 'bcrypt',         '3.1.12'
 
 group :development, :test do
