@@ -17,7 +17,8 @@
                     <li style="color: white;"><%= current_user_devise.email %></li>
                 <% elsif company_signed_in? %>
                     <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete %></li>
-                    <li><%= link_to 'プロフィール変更', edit_company_registration_path %></li>
+                    <li><%= link_to 'アカウント情報', edit_company_registration_path(name: "アカウント情報")  %></li>
+                    <li><%= link_to '会社・店舗情報', edit_company_registration_path(name: "会社・店舗情報")  %></li>
                     <li><a href="/companies/<%= current_company.id %>">マイページ</a></li>
                     <li><a href="/companies/applies">応募者一覧</a></li>
                     <li style="color: white;"><%= current_company.email %></li>

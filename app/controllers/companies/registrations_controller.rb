@@ -64,4 +64,10 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   def after_update_path_for(resource)
     company_path(resource) 
   end
+
+  protected
+  # ユーザー情報を編集する際にパスワード無しで編集可能に
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
+  end
 end
