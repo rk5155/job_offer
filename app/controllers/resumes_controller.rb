@@ -14,6 +14,16 @@ class ResumesController < ApplicationController
     end
 end
 
+def show
+  respond_to do |format|
+    format.html
+     format.pdf do
+       render pdf: 'filename',   # PDF名
+              template: 'resumes/show.html.erb' # viewを対象にする
+     end
+   end
+ end
+
 private
 
 def resume_params
