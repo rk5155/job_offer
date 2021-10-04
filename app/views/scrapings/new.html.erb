@@ -7,13 +7,44 @@
   <% path = request.path %>
 
   <% if path === "/scrapings/new" %>
-    <div class="p-job-posting__list">
-      <ul>
-        <% @jobs.each do |job| %>
-          <li class="p-job-posting__item <%= job.id %>"><%= job.title %></li>  
-        <% end %>
-      </ul>
+
+    <input type="checkbox" id="modal01" class="modalCheck">
+    
+    <div class="wrapper">
+        
+        <div class="btn">
+          <label for="modal01" class="u-mb20">他の求人をコピーして作成</label>
+          <p class="u-mb20">作成済みの求人から情報をコピーして求人を作成できます。</p>
+        </div>
+        
+        
+        <div id="modal01Con" class="modalWrap">
+            <div class="modalBg"><label for="modal01" class="closeModal"></label></div>
+              <div class="modalCon">
+                  <div class="modalInner">
+                      <div class="modalCloseBtn"><label for="modal01" class="closeModal">×</label></div>
+                      <div class="p-modal">
+                      <p class="p-modal__title u-mb20">コピーする求人を選択してください</p>
+                      <table class="p-modal__table">
+                          <tr>
+                            <th>求人タイトル</th>
+                            <th>作成日</th>
+                          </tr>
+                          <% @jobs.each do |job| %>
+                            <tr>
+                              <td class="p-modal__tdtitle"><%= job.title %></td>
+                              <td><%= job.created_at.year %>/<%= job.created_at.month %>/<%= job.created_at.day %></td>
+                              <td><button class="c-btn__copy <%= job.id %>">コピー</button></td>
+                            </tr>
+                          <% end %>
+                      </table>
+                    </div>
+      
+                  </div>
+              </div>
+          </div>
     </div>
+    
   <% end %>
 
   <%= form_for(@scraping) do |f| %>

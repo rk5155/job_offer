@@ -50,7 +50,7 @@ document.addEventListener("turbolinks:load", function() {
     // 求人投稿をコピー
     const jobs = $('#jobs').data('json');
 
-    $(".p-job-posting__item").click(function() {
+    $(".c-btn__copy").click(function() {
         let job_id = $(this).attr("class").split(" ")[1];
 
         $(".p-job-posting__check input").prop('checked', false);
@@ -67,7 +67,6 @@ document.addEventListener("turbolinks:load", function() {
 
                 $("#scraping_section").val(jobs[i].section);
 
-                let statusArray = jobs[i].status.split(",")
                 let employee = $("#scraping_status_正社員");
                 let part = $("#scraping_status_アルバイトパート");
                 let contract = $("#scraping_status_契約社員");
@@ -75,42 +74,52 @@ document.addEventListener("turbolinks:load", function() {
                 let intern = $("#scraping_status_新卒インターン");
                 let dispatch = $("#scraping_status_派遣社員");
                 let introduction = $("#scraping_status_紹介予定派遣");
-                
-                statusArray.forEach((ele, i) => {
-                    let status = ele.replace("\"", "").replace("\"", "").replace("[", "").replace("]", "").replace(" ", "");
 
-                    console.log(status);
+                if (jobs[i].status !== null) {
+                    let statusArray = jobs[i].status.split(",")
 
-                    if (employee.val() === status) {
-                        employee.prop('checked', true);
-                    } 
-
-                    else if (part.val() === status) {
-                        console.log(3333);
-                        part.prop('checked', true);
-                    } 
-
-                    else if (contract.val() === status) {
-                        contract.prop('checked', true);
-                    } 
-
-                    else if (subcontracting.val() === status) {
-                        subcontracting.prop('checked', true);
-                    } 
-
-                    else if (intern.val() === status) {
-                        intern.prop('checked', true);
-                    } 
-
-                    else if (dispatch.val() === status) {
-                        dispatch.prop('checked', true);
-                    } 
-
-                    else if (introduction.val() === status) {
-                        introduction.prop('checked', true);
-                    } 
+                    statusArray.forEach((ele, i) => {
+                        let status = ele.replace("\"", "").replace("\"", "").replace("[", "").replace("]", "").replace(" ", "");
+    
+                        console.log(status);
+    
+                        if (employee.val() === status) {
+                            employee.prop('checked', true);
+                        } 
+    
+                        else if (part.val() === status) {
+                            console.log(3333);
+                            part.prop('checked', true);
+                        } 
+    
+                        else if (contract.val() === status) {
+                            contract.prop('checked', true);
+                        } 
+    
+                        else if (subcontracting.val() === status) {
+                            subcontracting.prop('checked', true);
+                        } 
+    
+                        else if (intern.val() === status) {
+                            intern.prop('checked', true);
+                        } 
+    
+                        else if (dispatch.val() === status) {
+                            dispatch.prop('checked', true);
+                        } 
+    
+                        else if (introduction.val() === status) {
+                            introduction.prop('checked', true);
+                        } 
+                        
+                    })
                     
-                })
+                }
+                
+                
+                
+                
+                
 
 
                 $("#scraping_status").val(jobs[i].status);
@@ -160,6 +169,19 @@ document.addEventListener("turbolinks:load", function() {
             }
         }
 
+        $("#modal01").prop('checked', false);
+        $('body').css('overflow','auto');
+
     })
+
+    
+    
+    $('.modalCheck').on('change', function(){
+        if($(this).is(':checked')){
+            $('body').css('overflow','hidden');
+        } else {
+            $('body').css('overflow','auto');
+        }
+    });
 
 })
