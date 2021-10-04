@@ -1,6 +1,20 @@
 <div class="p-job-posting">
   <h2 class="c-heading__h2--bold">求人投稿</h2>
 
+  
+  <div id='jobs' data-json="<%= @jobs_hash.to_json %>"></div>
+
+  <% path = request.path %>
+
+  <% if path === "/scrapings/new" %>
+    <div class="p-job-posting__list">
+      <ul>
+        <% @jobs.each do |job| %>
+          <li class="p-job-posting__item <%= job.id %>"><%= job.title %></li>  
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <%= form_for(@scraping) do |f| %>
       <section class="p-job-posting__job">

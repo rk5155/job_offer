@@ -40,6 +40,18 @@ class ScrapingsController < ApplicationController
   def new
     @scraping = Scraping.new
     @id = params[:id]
+    @jobs = Scraping.where(company_id: @id)
+
+    @jobs_hash = {};
+
+    @jobs.each do |job|
+
+      @jobs_hash.store(job.id, {name: job.name, title: job.title, section: job.section, status: job.status, content: job.content ,rewarding: job.rewarding,
+                      target: job.target, location1: job.location1, location2: job.location2, location3: job.location3, location4: job.location4, transportation: job.transportation,
+                      salary: job.salary, under: job.under, up: job.up, supplement: job.supplement, conditions: job.conditions, application: job.application, number: job.number, selection: job.selection })
+    end
+    
+
   end
 
   def show
