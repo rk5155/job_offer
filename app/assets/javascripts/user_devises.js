@@ -19,7 +19,10 @@ document.addEventListener("turbolinks:load", function() {
   let params = decodeURIComponent(location.search)
   let tabText = params.split("=")[1]
 
-  console.log(tabText);
+  if (params) {
+    $(".p-users__content:nth-child(1)").removeClass("p-users__content--show")
+    $(".p-users__tab:nth-child(1)").removeClass("p-users__tab--active")
+  }
 
   $(".p-users__tab").each((i, ele) => {
     if (tabText === $(ele).text()) {
