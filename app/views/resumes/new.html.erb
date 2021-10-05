@@ -1,84 +1,153 @@
 <% provide(:title, 'Sign up') %>
-<h1>WEB履歴書</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-  
-    <%= form_for(@resume) do |f| %>
-      <%= f.label :配偶者 %>
-      <%= f.radio_button :spouse, "有" %> 有
-      <%= f.radio_button :spouse, "無" %> 無<br><br>
+<style>
+  .p-users__tab {
+    padding: 0!important;
+  }
+  .p-users__tab a {
+      display: block;
+      padding: 20px;
+  }
+</style>
 
-      <%= f.label :配偶者の扶養義務 %>
-      <%= f.radio_button :dependent_support, "有" %> 有
-      <%= f.radio_button :dependent_support, "無" %> 無<br><br>
+<div class="p-users">
+    <div class="p-users__left">
+        <ul>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=会員情報">会員情報</a></li>
+            <li class="p-users__tab p-users__tab--active"><%= link_to "WEB履歴書", new_resume_path %></li>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=条件設定">条件設定</a></li>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=スカウト利用設定">スカウト利用設定</a></li>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=転職支援サービス">転職支援サービス</a></li>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=応募した求人">応募した求人</a></li>
+        </ul>
+    </div>
 
-      <%= f.label :扶養家族（配偶者を除く）%>
-      <%= f.text_field :dependents %><br><br>
+    <div class="p-users__right">
+        <h2 class="c-heading__h2--bold u-mb20">WEB履歴書</h2>
 
-      <%= f.label :現在の就業状況 %>
-      <%= f.select :employment_status, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+        
 
-      <%= f.label :現在（直近）の年収 %>
-      <%= f.text_field :annual_Income %><br><br>
+        <div class="p-job-posting u-m-none">
 
-      <%= f.label :経験社数 %>
-      <%= f.text_field :experience %><br><br>
+          <%= form_for(@resume) do |f| %>
+          <section class="p-job-posting__job">
+            <%= f.label :配偶者 %>
+            <div class="p-job-posting__box">
+              <div class="p-job-posting__check">
+                <%= f.radio_button :spouse, "有" %> 有
+                <%= f.radio_button :spouse, "無" %> 無
+              </div>
+            </div>
+            
 
-      <%= f.label :経験職種・年数 %>
-      <%= f.text_field :years_of_experience %>
-      <%= f.select :occupation, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+            <%= f.label :配偶者の扶養義務 %>
+            <div class="p-job-posting__box">
+              <div class="p-job-posting__check">
+                <%= f.radio_button :dependent_support, "有" %> 有
+                <%= f.radio_button :dependent_support, "無" %> 無<br><br>
+              </div>
+            </div>
+            
 
-      <%= f.label :社名 %>
-      <%= f.text_field :company_name1 %><br><br>
+            <%= f.label :扶養家族（配偶者を除く）%>
+            <%= f.text_field :dependents %><br><br>
 
-      <%= f.label :在職期間 %>
-      <%= f.text_field :period_year_from1 %>年
-      <%= f.text_field :period_month_from1 %>月　〜
-      <%= f.text_field :period_year_to1 %>年
-      <%= f.text_field :period_month_to1 %>月<br><br>
+            <%= f.label :現在の就業状況 %>
+            <%= f.select :employment_status, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
 
-      <%= f.label :雇用形態 %>
-      <%= f.select :status1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+            <%= f.label :現在（直近）の年収 %>
+            <%= f.text_field :annual_Income %><br><br>
 
-      <%= f.label :業種 %>
-      <%= f.select :industry1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+            <%= f.label :経験社数 %>
+            <%= f.text_field :experience %><br><br>
 
-      <%= f.label :資本金 %>
-      <%= f.select :capital1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+            <%= f.label :経験職種・年数 %>
+            <%= f.text_field :years_of_experience %>
+            <%= f.select :occupation, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
 
-      <%= f.label :従業員数 %>
-      <%= f.select :number_of_employees1, {'1': 1, '2': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+          </section>
 
-      <%= f.label :最終ポジション %>
-      <%= f.select :final_position1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+          <section class="p-job-posting__job">
+            <h3 class="c-heading__h2--500">経験企業1</h3>
 
-      <%= f.label :職務内容 %>
-      <%= f.text_area :job_description1 %><br><br>
+            <%= f.label :社名 %>
+            <%= f.text_field :company_name1 %><br><br>
 
-      <%= f.label :退職理由 %>
-      <%= f.text_area :reason_retirement1 %><br><br>
+            <%= f.label :在職期間 %>
+            <%= f.text_field :period_year_from1 %>年
+            <%= f.text_field :period_month_from1 %>月　〜
+            <%= f.text_field :period_year_to1 %>年
+            <%= f.text_field :period_month_to1 %>月<br><br>
 
-      <%= f.label :保有資格 %>
-      <%= f.select :qualification1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
-      <%= f.text_field :qualification_year1 %>年
-      <%= f.text_field :qualification_month1 %>月　取得<br><br>
+            <%= f.label :雇用形態 %>
+            <%= f.select :status1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
 
-      <%= f.label :語学スキル %>
-      <%= f.text_field :language %><br><br>
+            <%= f.label :業種 %>
+            <%= f.select :industry1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
 
-      <%= f.label :自己PR %>
-      <%= f.text_area :pr %><br><br>
+            <%= f.label :資本金 %>
+            <%= f.select :capital1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+
+            <%= f.label :従業員数 %>
+            <%= f.select :number_of_employees1, {'1': 1, '2': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+
+            <%= f.label :最終ポジション %>
+            <%= f.select :final_position1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
+
+            <%= f.label :職務内容 %>
+            <%= f.text_area :job_description1 %><br><br>
+
+            <%= f.label :退職理由 %>
+            <%= f.text_area :reason_retirement1 %><br><br>
+
+          </section>
+
+          <section class="p-job-posting__job">
+            <h3 class="c-heading__h2--500">資格・スキル</h3>
+
+            <%= f.label :保有資格 %>
+            <%= f.select :qualification1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+            <%= f.text_field :qualification_year1 %>年
+            <%= f.text_field :qualification_month1 %>月　取得<br><br>
+
+            <%= f.label :語学スキル %>
+            <%= f.text_field :language %><br><br>
+
+          </section>
+
+          <section class="p-job-posting__job">
+            <h3 class="c-heading__h2--500">自己PR・志望動機</h3>
+
+            <%= f.label :自己PR %>
+            <%= f.text_area :pr %><br><br>
+            
+            <%= f.label :志望動機 %>
+            <%= f.text_area :motivation %><br><br>
+
+          </section>
+
+          <section class="p-job-posting__job">
+            <h3 class="c-heading__h2--500">本人希望欄</h3>
+
+            <%= f.label :本人希望欄 %>
+            <%= f.text_area :hope %><br><br>
+
+            <%= f.submit "変更する", class: "btn btn-primary" %>
+          </section>
+          
+        <% end %>
+          
+        </div>
+
+        
+        
+        
+        
+        
       
-      <%= f.label :志望動機 %>
-      <%= f.text_area :motivation %><br><br>
 
-      <%= f.label :本人希望欄 %>
-      <%= f.text_area :hope %><br><br>
-
-      <%= f.submit "登録", class: "btn btn-primary" %>
-      
-      
-    <% end %>
-  </div>
+        
+        
+    </div>
 </div>
+

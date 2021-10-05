@@ -64,10 +64,21 @@
         }
     }
 }
+.p-users__tab {
+    a {
+        color: #333333;
+    }
+}
 .p-users__content--show {
     display: block;
 }
 .p-users__tab--active {
     background-color: $mainColor;
+    a {
+        color: #ffffff;
+    }
     color: #ffffff;
+}
+.p-users__text {
+    text-align: center;
 }
