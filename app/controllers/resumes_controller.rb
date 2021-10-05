@@ -15,11 +15,16 @@ class ResumesController < ApplicationController
 end
 
 def show
+  @aa = Resume.find(1)
+
   respond_to do |format|
     format.html
      format.pdf do
        render pdf: 'filename',   # PDF名
-              template: 'resumes/show.html.erb' # viewを対象にする
+              template: 'resumes/show.html.erb', # viewを対象にする
+              orientation: 'Landscape', #　　横向き
+              page_size: 'A4', # ページサイズ
+              show_as_html: params.key?('debug')
      end
    end
  end
