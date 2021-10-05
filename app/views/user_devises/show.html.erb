@@ -137,7 +137,13 @@
 
         <div class="p-users__content">
 
-            <h2 class="u-mb20">応募した求人</h2><span><%= @jobs.length() %>件</span>
+            <% if @jobs.length() === 0 %>
+                <h2 class="u-mb20">応募した求人はありません。</h2>
+                <p class="u-font--size14">応募した「かんたん応募求人」の最新30件が表示されます。</p>
+            <% else %>
+                <h2 class="u-mb20">応募した求人</h2><span><%= @jobs.length() %>件</span>
+            <% end %>
+
 
             <ul>
                 <% @jobs.each do |item| %>
