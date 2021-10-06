@@ -97,8 +97,8 @@
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-s bd-l-s">フリガナ</td>
-            <td class="bd-t-s bd-l-s" colspan="3">ヤマダ タロウ</td>
-            <td class="bd-t-s bd-l-dt center" rowspan="3">男</td>
+            <td class="bd-t-s bd-l-s" colspan="3"><%= @user_devise.furigane %></td>
+            <td class="bd-t-s bd-l-dt center" rowspan="3"><%= @user_devise.sex %></td>
             <td class="bd-t-s bd-r-s bd-l-s center" rowspan="4">（写真を貼る位置）</td>
             <td></td>
             <td class="bd-t-s bd-l-s center">年</td>
@@ -107,7 +107,7 @@
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-dt bd-l-s" rowspan="2">氏 名</td>
-            <td class="bd-t-dt" colspan="3" rowspan="2">山田 太郎</td>
+            <td class="bd-t-dt" colspan="3" rowspan="2"><%= @user_devise.name %></td>
             <td></td>
             <td class="bd-t-db bd-l-s center"></td>
             <td class="bd-t-db bd-l-dt center"></td>

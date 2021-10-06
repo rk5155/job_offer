@@ -30,6 +30,8 @@ end
 def show
   @resume = Resume.find(current_user_devise.id)
 
+  @user_devise = UserDevise.find(@resume.user_devise_id)
+
   respond_to do |format|
     format.html
      format.pdf do
