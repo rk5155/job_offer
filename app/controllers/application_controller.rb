@@ -19,6 +19,16 @@ class ApplicationController < ActionController::Base
   end
 
 
+  # ログイン中のユーザー以外のユーザーが、アクセスしたとき、root にリダイレクト
+  def user_control(id)
+    if id != current_user_devise.id
+      redirect_to root_path
+    end
+  end
+
+
+
+
 
 
   # deviseコントローラーにストロングパラメータを追加する          

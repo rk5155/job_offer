@@ -44,6 +44,8 @@ def show
 
  def edit
   @resume = Resume.find(params[:id])
+
+  user_control(@resume.user_devise_id)
  end
 
  def update

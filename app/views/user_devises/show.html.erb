@@ -11,7 +11,7 @@
             <li class="p-users__tab p-users__tab--active">会員情報</li>
 
             <% if @current_user_count > 0 %>
-              <li class="p-users__tab" style="padding: 0;"><a href="/resumes/<%= @current_user_devise.id %>/edit">WEB履歴書</a></li>
+              <li class="p-users__tab" style="padding: 0;"><a href="/resumes/<%= @resume.id %>/edit">WEB履歴書</a></li>
             <% else %>
               <li class="p-users__tab" style="padding: 0;"><%= link_to "WEB履歴書", new_resume_path %></li>
             <% end %>

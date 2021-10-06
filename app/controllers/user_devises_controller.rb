@@ -4,5 +4,7 @@ class UserDevisesController < ApplicationController
         @jobs = Apply.where(user_id: current_user_devise.id)
 
         @current_user_count = Resume.where(user_devise_id: current_user_devise.id).length
+
+        @resume = Resume.find_by(user_devise_id: current_user_devise.id)
     end
 end
