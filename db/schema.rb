@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211001010437) do
+ActiveRecord::Schema.define(version: 20211006015759) do
 
   create_table "applies", force: :cascade do |t|
     t.string "name"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(version: 20211001010437) do
     t.text "hope"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_devise_id"
   end
 
   create_table "scrapings", force: :cascade do |t|

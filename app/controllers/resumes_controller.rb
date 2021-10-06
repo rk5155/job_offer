@@ -5,17 +5,30 @@ class ResumesController < ApplicationController
 
   def create
     @resume = Resume.new(resume_params)
-    if @resume.save
+
+    @current_user_count = Resume.where(user_devise_id: current_user_devise.id).length
+
+    if @current_user_count > 0
+      flash[:success] = "履歴書はすでに登録されています。"
+      redirect_to(new_resume_path)
+
+    else
+
+      if @resume.save
         # 保存の成功をここで扱う。
         flash[:success] = "登録完了しました"
         redirect_to(root_url)
-    else
-        render 'new'
+      else
+          render 'new'
+      end
+
     end
+
+    
 end
 
 def show
-  @aa = Resume.find(1)
+  @resume = Resume.find(current_user_devise.id)
 
   respond_to do |format|
     format.html
@@ -29,6 +42,20 @@ def show
    end
  end
 
+ def edit
+  @resume = Resume.find(params[:id])
+ end
+
+ def update
+    @resume = Resume.find(params[:id])
+    if @resume.update_attributes(resume_params)
+      flash[:success] = "編集しました。"
+      redirect_to @resume
+    else
+      render 'edit'
+    end
+ end
+
 private
 
 def resume_params
@@ -37,6 +64,6 @@ def resume_params
                                   :year, :month, :experience, :Experienced, :occupation, :years_of_experience,
                                   :company_name1, :period_year_from1, :period_month_from1, :period_year_to1,
                                   :period_month_to1, :status1, :employment_status1, :industry1, :capital1, :number_of_employees1, :final_position1, :job_description1, :reason_retirement1,
-                                   :qualification1, :qualification_year1, :qualification_month1, :language, :pr, :motivation, :hope)
+                                   :qualification1, :qualification_year1, :qualification_month1, :language, :pr, :motivation, :hope, :user_devise_id)
 end
 end

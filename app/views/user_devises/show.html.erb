@@ -9,7 +9,16 @@
     <div class="p-users__left">
         <ul>
             <li class="p-users__tab p-users__tab--active">会員情報</li>
-            <li class="p-users__tab" style="padding: 0;"><%= link_to "WEB履歴書", new_resume_path %></li>
+
+            <% if @current_user_count > 0 %>
+              <li class="p-users__tab" style="padding: 0;"><a href="/resumes/<%= @current_user_devise.id %>/edit">WEB履歴書</a></li>
+            <% else %>
+              <li class="p-users__tab" style="padding: 0;"><%= link_to "WEB履歴書", new_resume_path %></li>
+            <% end %>
+
+            
+
+
             <li class="p-users__tab">条件設定</li>
             <li class="p-users__tab">スカウト利用設定</li>
             <li class="p-users__tab">転職支援サービス</li>
