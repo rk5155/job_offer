@@ -1,210 +1,301 @@
-<div class="p-edit">
-  <% if t('.title', resource: resource.model_name.human) == "User devise編集" %>
-    <% @name = params[:name] %>
 
-    <% if @name == "アカウント情報変更" %>
-      <h2 class="c-heading__h2--bold u-mb20">アカウント情報変更</h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+<% provide(:title, 'WEB履歴書') %>
 
-          <div class="p-edit__field">
-            <%= f.label :メールアドレス %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
+<style>
+  .p-users__tab {
+    padding: 0!important;
+  }
+  .p-users__tab a {
+      display: block;
+      padding: 20px;
+  }
+  .l-main {
+    width: 1200px;
+  }
+</style>
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+<div class="p-users">
+    <div class="p-users__left">
+        <ul>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=会員情報">会員情報</a></li>
+            <li class="p-users__tab p-users__tab--active"><%= link_to "WEB履歴書", new_resume_path %></li>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=条件設定">条件設定</a></li>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=スカウト利用設定">スカウト利用設定</a></li>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=転職支援サービス">転職支援サービス</a></li>
+            <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=応募した求人">応募した求人</a></li>
+        </ul>
+    </div>
+
+    <div class="p-users__right">
+      <% if t('.title', resource: resource.model_name.human) == "User devise編集" %>
+        <% @name = params[:name] %>
+
+        <% if @name == "アカウント情報変更" %>
+          <h2 class="c-heading__h2--bold u-mb20">アカウント情報変更</h2>
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <div class="p-edit__field">
+                <%= f.label :メールアドレス %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+              <% end %>
+
+              <div class="p-edit__field">
+                <%= f.label :現在のパスワード %>
+                <%= f.password_field :current_password, autocomplete: "current-password" %>
+              </div>
+
+              <div class="p-edit__field">
+                <%= f.label :新しいパスワード %>
+                <% if @minimum_password_length %>
+                  <p><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></p>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "new-password" %>
+              </div>
+
+              <div class="p-edit__field">
+                <%= f.label :新しいパスワード【確認】 %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+
+
+              <div class="p-edit__actions">
+                <%= f.submit t('.update'), class: "c-btn__change" %>
+              </div>
           <% end %>
 
-          <div class="p-edit__field">
-            <%= f.label :現在のパスワード %>
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
-          </div>
-
-          <div class="p-edit__field">
-            <%= f.label :新しいパスワード %>
-            <% if @minimum_password_length %>
-              <p><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></p>
-            <% end %>
-            <%= f.password_field :password, autocomplete: "new-password" %>
-          </div>
-
-          <div class="p-edit__field">
-            <%= f.label :新しいパスワード【確認】 %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-
-
-          <div class="p-edit__actions">
-            <%= f.submit t('.update'), class: "c-btn__change" %>
-          </div>
-      <% end %>
 
 
 
+        <% elsif @name == "プロフィール変更" %>
 
-    <% elsif @name == "プロフィール変更" %>
+          <h2 class="c-heading__h2--bold u-mb20">会員情報</h2>
 
-      <h2 class="c-heading__h2--bold u-mb20">会員情報</h2>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-        
+            <table class="p-table u-mb20">
+              <tbody>
+              
 
-        
+                <%= render "devise/shared/error_messages", resource: resource %>
+                
+                  <tr>
+                    <th>氏名</th>
+                    <td>
+                      姓<%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+                      名<%= f.text_field :name2, autofocus: true, autocomplete: "name" %>
+                    </td>
+                  </tr>
 
-        <div class="p-edit__field">
-          <%= f.label :氏名 %>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-        </div>
+                  <tr>
+                    <th>氏名（カナ）</th>
+                    <td>
+                      姓<%= f.text_field :furigane, autofocus: true, autocomplete: "furigane" %>
+                      名<%= f.text_field :furigane2, autofocus: true, autocomplete: "furigane" %>
+                    </td>
+                  </tr>
 
-        <div class="p-edit__field">
-          <%= f.label :ふりがな %>
-          <%= f.text_field :furigane, autofocus: true, autocomplete: "furigane" %>
-        </div>
+                  <tr>
+                    <th>生年月日</th>
+                    <td>
+                      <%= f.text_field :birthday, autofocus: true, autocomplete: "birthday" %>年
+                      <%= f.text_field :month, autofocus: true, autocomplete: "month" %>月
+                      <%= f.text_field :day, autofocus: true, autocomplete: "day" %>日
+                    </td>
+                  </tr>
 
-        <div class="p-edit__field">
-          <%= f.label :生年月日 %>
-          <%= f.text_field :birthday, autofocus: true, autocomplete: "birthday" %>
-        </div>
+                  <tr>
+                    <th>性別</th>
+                    <td>
+                      <%= f.radio_button :sex, "男" %> 男
+                      <%= f.radio_button :sex, "女" %> 女
+                    </td>
+                  </tr>
 
-        <div class="p-edit__field">
-          <%= f.label :性別 %>
-          <%= f.text_field :sex, autofocus: true, autocomplete: "sex" %>
-        </div>
+                  <tr>
+                    <th>現在所</th>
+                    
+                    <td>
+                      <%= f.text_field :postal, autofocus: true, autocomplete: "postal", class: "u-mb20" %>郵便番号<br>
+                      <%= f.select :address, {'北海道': "北海道", '青森県': "青森県", '岩手県': "岩手県", '宮城県': "宮城県", '秋田県': "秋田県", '山形県': "山形県", '福島県': "福島県", '茨城県': "茨城県", '栃木県': "栃木県", '群馬県': "群馬県", '埼玉県': "埼玉県", '千葉県': "千葉県", '東京都': "東京都", '神奈川県': "神奈川県", '新潟県': "新潟県", '富山県': "富山県", '石川県': "石川県", '福井県': "福井県", '山梨県': "山梨県", '長野県': "長野県", '岐阜県': "岐阜県", '静岡県': "静岡県", '愛知県': "愛知県", '三重県': "三重県", '滋賀県': "滋賀県", '京都府': "京都府", '大阪府': "大阪府", '兵庫県': "兵庫県", '奈良県': "奈良県", '和歌山県': "和歌山県", '鳥取県': "鳥取県", '岡山県': "岡山県", '広島県': "広島県", '山口県': "山口県", '徳島県': "徳島県", '香川県': "香川県", '愛媛県': "愛媛県", '高知県': "高知県", '福岡県': "福岡県", '佐賀県': "佐賀県", '長崎県': "長崎県", '熊本県': "熊本県", '大分県': "大分県", '宮崎県': "宮崎県", '鹿児島県': "鹿児島県", '沖縄県': "沖縄県"}, { include_blank: '選択してください'}, { class: 'form-control u-mb20' , required: true } %>都道府県
 
-        <div class="p-edit__field">
-          <%= f.label :現在の職業 %>
-          <%= f.text_field :profession, autofocus: true, autocomplete: "profession" %>
-        </div>
+                      <%= f.text_field :address2, autofocus: true, autocomplete: "address2" %>市町村区<br>
+                      <%= f.text_field :address3, autofocus: true, autocomplete: "address2", class: "p-table__input--long" %>以降の住所
+                    </td>
 
-        <div class="p-edit__field">
-          <%= f.label :直近の職務経歴 %>
-          <%= f.text_area :career, autofocus: true, autocomplete: "career" %>
-        </div>
+                  </tr>
 
-        <div class="p-edit__field">
-          <%= f.label :電話番号 %>
-          <%= f.text_field :number, autofocus: true, autocomplete: "number" %>
-        </div>
+                  <tr>
+                    <th>電話番号</th>
+                    <td>
+                      <%= f.text_field :number, autofocus: true, autocomplete: "number" %>
+                    </td>
+                  </tr>
 
-        <div class="p-edit__field">
-          <%= f.label :住所 %>
-          <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-        </div>
+                  <tr>
+                    <th>学歴</th>
+                    <td>
+                      <%= f.text_field :educational_yearfrom1, autofocus: true, autocomplete: "educational_yearfrom1", class: "u-mb20" %>年
+                      <%= f.text_field :educational_monthfrom1, autofocus: true, autocomplete: "educational_monthfrom1" %>月〜<br>
+                      
+                      <%= f.text_field :educational_yearto1, autofocus: true, autocomplete: "educational_yearfrom1", class: "u-mb20" %>年
+                      <%= f.text_field :educational_monthto1, autofocus: true, autocomplete: "educational_monthto1" %>月〜<br>
 
-        <div class="p-edit__field">
-          <%= f.label :備考・PR %>
-          <%= f.text_area :pr, autofocus: true, autocomplete: "pr" %>
-        </div>
+                      <%= f.text_field :school1, autofocus: true, autocomplete: "school1" %>
+                    </td>
+                  </tr>
 
-        <div class="p-edit__actions">
-          <%= f.submit t('.update'), class: "c-btn__change" %>
-        </div>
-      <% end %>
-    <% end %>
-    
+                  <tr>
+                    <th>職歴</th>
+                    <td>
+                      <%= f.text_field :career_yearfrom1, autofocus: true, autocomplete: "career_yearfrom1", class: "u-mb20" %>年
+                      <%= f.text_field :career_monthfrom1, autofocus: true, autocomplete: "career_monthfrom1" %>月〜<br>
+                      
+                      <%= f.text_field :career_yearto1, autofocus: true, autocomplete: "career_yearto1", class: "u-mb20" %>年
+                      <%= f.text_field :career_monthto1, autofocus: true, autocomplete: "career_monthto1" %>月〜<br>
 
-    
+                      <%= f.text_field :company1, autofocus: true, autocomplete: "company1" %>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <th>写真をアップロード</th>
+                    <td>
+                      <%= f.file_field :image %><br>
 
-    <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+                      <%= f.radio_button :release, "公開する" %> 公開する
+                      <%= f.radio_button :release, "公開しない" %> 公開しない
+                    </td>
+                  </tr>
 
-    <%= link_to t('devise.shared.links.back'), :back, class: "c-btn__return" %>
+                  
+                  
 
+      
+                  
+                  
 
-  <% else %>
-    <% @name = params[:name] %>
-    
-    <% if @name === "アカウント情報" %>
-        <h2 class="c-heading__h2--bold u-mb20">アカウント情報</h2>
+                  
+                
+                
+              </tbody>
+            </table>
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-
-          <div class="p-edit__field">
-            <%= f.label :メールアドレス %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-
-
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+            <div class="p-edit__actions">
+                <%= f.submit t('.update'), class: "c-btn__change", value: "変更する" %>
+            </div>
           <% end %>
 
-          <div class="p-edit__field">
-            <%= f.label :現在のパスワード %> 
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
-          </div>
-
-          <div class="p-edit__field">
-            <%= f.label :パスワード %> 
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-            <% end %>
-          </div>
-
-          <div class="p-edit__field">
-            <%= f.label :パスワード確認 %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-
-          <div class="actions">
-            <%= f.submit t('.update'), class: "c-btn__change" %>
-          </div>
-      <% end %>
-
-    <% else %>
-        <h2 class="c-heading__h2--bold u-mb20">会社・店舗情報</h2>
-
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-
-            <div class="p-edit__field">
-              <%= f.label :ロゴ画像 %>
-              <%= f.file_field :image %>
-            </div>
-
-            <div class="p-edit__field">
-                <%= f.label :本社所在地 %>
-                <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
-            </div>
-
-            <div class="p-edit__field">
-                <%= f.label :事業内容 %>
-                <%= f.text_area :contents, autofocus: true, autocomplete: "contents" %>
-            </div>
-
-            <div class="p-edit__field">
-                <%= f.label :設立年月 %>
-                <%= f.text_field :established, autofocus: true, autocomplete: "established" %>
-            </div>
-
-            <div class="p-edit__field">
-                <%= f.label :従業員数 %>
-                <%= f.text_field :number, autofocus: true, autocomplete: "number" %>
-            </div>
-
-            <div class="p-edit__field">
-                <%= f.label :サイト %>
-                <%= f.text_field :site, autofocus: true, autocomplete: "site" %>
-            </div>      
-
-            <div class="actions">
-              <%= f.submit t('.update'), class: "c-btn__change" %>
-            </div>
+          
+        <% end %>
         
+
+        
+
+        <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+
+        <%= link_to t('devise.shared.links.back'), :back, class: "c-btn__return" %>
+
+
+      <% else %>
+        <% @name = params[:name] %>
+        
+        <% if @name === "アカウント情報" %>
+            <h2 class="c-heading__h2--bold u-mb20">アカウント情報</h2>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <div class="p-edit__field">
+                <%= f.label :メールアドレス %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+              <% end %>
+
+              <div class="p-edit__field">
+                <%= f.label :現在のパスワード %> 
+                <%= f.password_field :current_password, autocomplete: "current-password" %>
+              </div>
+
+              <div class="p-edit__field">
+                <%= f.label :パスワード %> 
+                <%= f.password_field :password, autocomplete: "new-password" %>
+                <% if @minimum_password_length %>
+                  <br />
+                  <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+                <% end %>
+              </div>
+
+              <div class="p-edit__field">
+                <%= f.label :パスワード確認 %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit t('.update'), class: "c-btn__change" %>
+              </div>
+          <% end %>
+
+        <% else %>
+            <h2 class="c-heading__h2--bold u-mb20">会社・店舗情報</h2>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+
+                <div class="p-edit__field">
+                  <%= f.label :ロゴ画像 %>
+                  <%= f.file_field :image %>
+                </div>
+
+                <div class="p-edit__field">
+                    <%= f.label :本社所在地 %>
+                    <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
+                </div>
+
+                <div class="p-edit__field">
+                    <%= f.label :事業内容 %>
+                    <%= f.text_area :contents, autofocus: true, autocomplete: "contents" %>
+                </div>
+
+                <div class="p-edit__field">
+                    <%= f.label :設立年月 %>
+                    <%= f.text_field :established, autofocus: true, autocomplete: "established" %>
+                </div>
+
+                <div class="p-edit__field">
+                    <%= f.label :従業員数 %>
+                    <%= f.text_field :number, autofocus: true, autocomplete: "number" %>
+                </div>
+
+                <div class="p-edit__field">
+                    <%= f.label :サイト %>
+                    <%= f.text_field :site, autofocus: true, autocomplete: "site" %>
+                </div>      
+
+                <div class="actions">
+                  <%= f.submit t('.update'), class: "c-btn__change" %>
+                </div>
+            
+            <% end %>
+
         <% end %>
 
-    <% end %>
+        <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
 
-    <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+        <%= link_to t('devise.shared.links.back'), :back %>
 
-    <%= link_to t('devise.shared.links.back'), :back %>
+      <% end %>
 
-  <% end %>
+    </div>
 </div>
-
 

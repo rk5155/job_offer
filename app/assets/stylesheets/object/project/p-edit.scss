@@ -5,14 +5,16 @@
     margin: 100px auto;
 }
 .p-edit__field {
+    display: flex;
     label {
         display: block;
         font-weight: bold;
         font-size: 14px;
         margin-bottom: 10px;
+        width: 30%;
     }
     input {
-        width: 100%;
+        width: 70%;
         margin-bottom: 20px;
         height: 30px;
     }
@@ -20,7 +22,7 @@
         font-size: 14px;
     }
     textarea {
-        width: 100%;
+        width: 70%;
         height: 300px;
         margin-bottom: 20px;
     }

@@ -1,0 +1,38 @@
+@import "../../foundation/variable.scss";
+
+.p-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid;
+    font-size: 16px;
+    tr {
+        border-bottom: 1px solid;
+    }
+    th {
+        width: 20%;
+        padding: 30px 0 30px 20px;
+        background-color: $middle_gray;
+        text-align: left;
+    }
+    td {
+        width: 80%;
+        background-color: #ffffff;
+        padding: 30px 0 30px 20px;
+    }
+    input {
+        padding: 8px 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 150px;
+    }
+    select {
+        padding: 8px 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 150px;
+    }
+    .p-table__input--long {
+        width: 500px;
+    }
+}
