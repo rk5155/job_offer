@@ -4,6 +4,8 @@ class UserDevise < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  mount_uploader :image, ImageUploader
+
   # ユーザーがプロフィールをパスワードなしで更新できるようにメソッドを作成
   def update_without_current_password(params, *options)
     params.delete(:current_password)
