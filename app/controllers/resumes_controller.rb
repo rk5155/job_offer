@@ -28,9 +28,14 @@ class ResumesController < ApplicationController
 end
 
 def show
-  @resume = Resume.find(current_user_devise.id)
+  @resume = Resume.where(user_devise_id: current_user_devise.id)
+  @user_devise_id
+  
+  @resume.each do |ele|
+    @user_devise_id = ele.user_devise_id
+  end
 
-  @user_devise = UserDevise.find(@resume.user_devise_id)
+  @user_devise = UserDevise.find(@user_devise_id)
 
   respond_to do |format|
     format.html
