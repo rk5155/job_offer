@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   get  "scrapings/search"  => "scrapings#search"
   resources :scrapings
 
-  Rails.application.routes.draw do
-    get 'resumes/show', to: 'resumes#show'
-   end
+  
+  get 'resumes/show', to: 'resumes#show'
+  
   
 
   # root 'application#hello'
