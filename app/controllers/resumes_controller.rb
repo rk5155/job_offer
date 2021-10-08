@@ -38,8 +38,8 @@ def show
        render pdf: 'filename',   # PDF名
               template: 'resumes/show.html.erb', # viewを対象にする
               orientation: 'Landscape', #　　横向き
-              page_size: 'A4', # ページサイズ
-              show_as_html: params.key?('debug')
+              page_size: 'A4' # ページサイズ
+              
      end
    end
  end
