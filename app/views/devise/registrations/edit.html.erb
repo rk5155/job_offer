@@ -38,6 +38,11 @@
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                 <%= render "devise/shared/error_messages", resource: resource %>
 
+                <% flash.each do |message_type, message| %>
+                  
+                  <p class="c-alert--red alert-<%= message_type %>"><%= message %></p>
+                <% end %>
+
                 <table class="p-table u-mb20">
                   <tbody>
                     <%= render "devise/shared/error_messages", resource: resource %>
@@ -53,12 +58,14 @@
                         <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
                     <% end %>
 
+                    <% if false %>
                     <tr>
                         <th>現在のパスワード</th>
                         <td>
                           <%= f.password_field :current_password, autocomplete: "current-password" %>
                         </td>
                     </tr>
+                    <% end %>
 
                     <tr>
                         <th>新しいパスワード</th>
@@ -251,10 +258,12 @@
               <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
             <% end %>
 
+            <% if false %>
             <div class="p-edit__field">
               <%= f.label :現在のパスワード %> 
               <%= f.password_field :current_password, autocomplete: "current-password" %>
             </div>
+            <% end %>
 
             <div class="p-edit__field">
               <%= f.label :パスワード %> 
