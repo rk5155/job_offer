@@ -14,25 +14,36 @@
         padding: 30px 0 30px 20px;
         background-color: $middle_gray;
         text-align: left;
+        vertical-align: middle;
     }
     td {
         width: 80%;
         background-color: #ffffff;
-        padding: 30px 0 30px 20px;
+        padding: 30px;
     }
     input {
         padding: 8px 0;
-        margin-left: 10px;
         margin-right: 10px;
         width: 150px;
     }
     select {
         padding: 8px 0;
-        margin-left: 10px;
         margin-right: 10px;
         width: 150px;
     }
+    textarea {
+        padding: 8px 0;
+        margin-right: 10px;
+        width: 450px;
+        height: 150px;
+    }
     .p-table__input--long {
         width: 500px;
+    }
+    .p-table__input--short {
+        width: 86px;
+    }
+    .p-table--white {
+        background-color: #ffffff;
     }
 }
