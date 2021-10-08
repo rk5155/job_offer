@@ -16,9 +16,6 @@
               <li class="p-users__tab" style="padding: 0;"><%= link_to "WEB履歴書", new_resume_path %></li>
             <% end %>
 
-            
-
-
             <li class="p-users__tab">条件設定</li>
             <li class="p-users__tab">スカウト利用設定</li>
             <li class="p-users__tab">転職支援サービス</li>
@@ -103,7 +100,13 @@
                 
                 <div class="u-flex">
                     <button class="c-btn__change u-mt50"><%= link_to "会員情報を登録する", edit_user_devise_registration_path(name: "プロフィール変更") %></button>
-                    <button class="c-btn__change u-mt50"><%= link_to "WEB履歴書を登録する", new_resume_path %></button>
+
+                    <% if @current_user_count > 0 %>
+                        <button class="c-btn__change u-mt50"><a href="/resumes/<%= @resume.id %>/edit">WEB履歴書を編集する</a></button>
+                    <% else %>
+                        <button class="c-btn__change u-mt50"><%= link_to "WEB履歴書を登録する", new_resume_path %></button>
+                    <% end %>
+                    
                 </div>
                 
             </div>
@@ -124,8 +127,6 @@
         </div>
 
         <div class="p-users__content">
-
-            <h2 class="u-mb20">WEB履歴書</h2>
 
         </div>
 
