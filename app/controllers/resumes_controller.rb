@@ -43,7 +43,8 @@ def show
        render pdf: 'filename',   # PDF名
               template: 'resumes/show.html.erb', # viewを対象にする
               orientation: 'Landscape', #　　横向き
-              page_size: 'A4' # ページサイズ
+              page_size: 'A4', # ページサイズ
+              :encoding => 'UTF-8'
               
      end
    end
