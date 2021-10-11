@@ -30,9 +30,11 @@ end
 def show
   @resume = Resume.where(user_devise_id: current_user_devise.id)
   @user_devise_id
+  @hope
   
   @resume.each do |ele|
     @user_devise_id = ele.user_devise_id
+    @hope = ele.hope
   end
 
   @user_devise = UserDevise.find(@user_devise_id)

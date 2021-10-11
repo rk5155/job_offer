@@ -69,7 +69,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   </head>
   <body>
-  aaa 日本語
     <page size="A3" layout="portrait" style="padding: 60px; box-sizing: border-box">
       <table border-collapse="collapse" cellspacing="0" cellpadding="0" style="table-layout:fixed; width:0">
         <thead>
@@ -100,58 +99,58 @@
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-s bd-l-s">フリガナ</td>
-            <td class="bd-t-s bd-l-s" colspan="3"><%= @user_devise.furigane %></td>
+            <td class="bd-t-s bd-l-s" colspan="3"><%= @user_devise.furigane %> <%= @user_devise.furigane2 %></td>
             <td class="bd-t-s bd-l-dt center" rowspan="3"><%= @user_devise.sex %></td>
             <td class="bd-t-s bd-r-s bd-l-s center" rowspan="4">（写真を貼る位置）</td>
             <td></td>
             <td class="bd-t-s bd-l-s center">年</td>
             <td class="bd-t-s bd-l-dt center">月</td>
-            <td class="bd-t-s bd-r-s bd-l-dt center">賞罰</td>
+            <td class="bd-t-s bd-r-s bd-l-dt center">職歴</td>
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-dt bd-l-s" rowspan="2">氏 名</td>
-            <td class="bd-t-dt" colspan="3" rowspan="2"><%= @user_devise.name %></td>
+            <td class="bd-t-dt" colspan="3" rowspan="2"><%= @user_devise.name %> <%= @user_devise.name2 %></td>
             <td></td>
-            <td class="bd-t-db bd-l-s center"></td>
-            <td class="bd-t-db bd-l-dt center"></td>
-            <td class="bd-t-db bd-r-s bd-l-dt center">賞罰なし</td>
+            <td class="bd-t-db bd-l-s center"><%= @user_devise.career_yearfrom1 %></td>
+            <td class="bd-t-db bd-l-dt center"><%= @user_devise.career_monthfrom1 %></td>
+            <td class="bd-t-db bd-r-s bd-l-dt center"><%= @user_devise.company1 %></td>
           </tr>
           <tr style="height:33.5px">
             <td></td>
-            <td class="bd-t-dt bd-l-s center"></td>
-            <td class="bd-t-dt bd-l-dt center"></td>
-            <td class="bd-t-dt bd-r-s bd-l-dt center"></td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.career_yearfrom2 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.career_monthfrom2 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt center"><%= @user_devise.company2 %></td>
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-s bd-l-s">生年月日</td>
-            <td class="bd-t-s bd-l-s" colspan="4">1987年 01月 01日生 (満29歳)</td>
+            <td class="bd-t-s bd-l-s" colspan="4"><%= @user_devise.birthday %>年 <%= @user_devise.month %>月 <%= @user_devise.day %>日生 (満<%= @user_devise.age %>歳)</td>
             <td></td>
-            <td class="bd-t-dt bd-l-s center"></td>
-            <td class="bd-t-dt bd-l-dt center"></td>
-            <td class="bd-t-dt bd-r-s bd-l-dt center"></td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.career_yearfrom3 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.career_monthfrom3 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt center"><%= @user_devise.company3 %></td>
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-s bd-l-s">フリガナ</td>
             <td class="bd-t-s bd-r-s bd-l-s" colspan="5">トウキョウトミナトクシバコウエン4-2-8</td>
             <td></td>
-            <td class="bd-t-dt bd-l-s center"></td>
-            <td class="bd-t-dt bd-l-dt center"></td>
-            <td class="bd-t-dt bd-r-s bd-l-dt center"></td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.career_yearfrom4 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.career_monthfrom4 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt center"><%= @user_devise.company4 %></td>
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-dt bd-l-s">住 所</td>
-            <td class="bd-t-dt bd-r-s" colspan="5">( 〒 105-0011 )</td>
+            <td class="bd-t-dt bd-r-s" colspan="5">( 〒 <%= @user_devise.postal %> )</td>
             <td></td>
-            <td class="bd-t-dt bd-l-s center"></td>
-            <td class="bd-t-dt bd-l-dt center"></td>
-            <td class="bd-t-dt bd-r-s bd-l-dt center"></td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.career_yearfrom5 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.career_monthfrom5 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt center"><%= @user_devise.company5 %></td>
           </tr>
           <tr style="height:33.5px">
-            <td class="bd-r-s bd-l-s" colspan="6" rowspan="2">東京都港区芝公園4ｰ2ｰ8</td>
+            <td class="bd-r-s bd-l-s" colspan="6" rowspan="2"><%= @user_devise.address %><%= @user_devise.address2 %><%= @user_devise.address3 %></td>
             <td></td>
-            <td class="bd-t-dt bd-l-s center"></td>
-            <td class="bd-t-dt bd-l-dt center"></td>
-            <td class="bd-t-dt bd-r-s bd-l-dt center"></td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.career_yearfrom6 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.career_monthfrom6 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt center"><%= @user_devise.company6 %></td>
           </tr>
           <tr style="height:33.5px">
             <td></td>
@@ -161,9 +160,9 @@
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-s bd-l-s">電話</td>
-            <td class="bd-t-s" colspan="2">000-1111-2222</td>
+            <td class="bd-t-s" colspan="2"></td>
             <td class="bd-t-s bd-l-s">携帯電話</td>
-            <td class="bd-t-s bd-r-s" colspan="2">000-3333-4444</td>
+            <td class="bd-t-s bd-r-s" colspan="2"><%= @user_devise.number %></td>
             <td></td>
             <td class="bd-t-dt bd-l-s center"></td>
             <td class="bd-t-dt bd-l-dt center"></td>
@@ -171,7 +170,7 @@
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-s bd-l-s">E-mail</td>
-            <td class="bd-t-s bd-r-s" colspan="5">aaaa@example.com</td>
+            <td class="bd-t-s bd-r-s" colspan="5"><%= @user_devise.email %></td>
             <td></td>
             <td class="bd-t-s bd-l-s center">年</td>
             <td class="bd-t-s bd-l-dt center">月</td>
@@ -182,7 +181,7 @@
             <td class="bd-t-s bd-l-dt center">月</td>
             <td class="bd-t-s bd-r-s bd-l-dt center" colspan="4">学歴・職歴</td>
             <td></td>
-            <td class="bd-t-db bd-l-s center">平成xx</td>
+            <td class="bd-t-db bd-l-s center"><%= @user_devise.educational_yearfrom1 %></td>
             <td class="bd-t-db bd-l-dt center">1</td>
             <td class="bd-t-db bd-r-s bd-l-dt">普通自動車運転免許 取得</td>
           </tr>
@@ -196,36 +195,36 @@
             <td class="bd-t-dt bd-r-s bd-l-dt"></td>
           </tr>
           <tr style="height:33.5px">
-            <td class="bd-t-dt bd-l-s center">平成xx</td>
-            <td class="bd-t-dt bd-l-dt center">4</td>
-            <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4">○○高校 入学</td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.educational_yearfrom1 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.educational_monthfrom1 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4"><%= @user_devise.school1 %> 入学</td>
             <td></td>
             <td class="bd-t-dt bd-l-s center"></td>
             <td class="bd-t-dt bd-l-dt center"></td>
             <td class="bd-t-dt bd-r-s bd-l-dt"></td>
           </tr>
           <tr style="height:33.5px">
-            <td class="bd-t-dt bd-l-s center">平成xx</td>
-            <td class="bd-t-dt bd-l-dt center">3</td>
-            <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4">○○高校 卒業</td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.educational_yearto1 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.educational_monthto1 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4"><%= @user_devise.school1 %> 卒業</td>
             <td></td>
             <td class="bd-t-dt bd-l-s center"></td>
             <td class="bd-t-dt bd-l-dt center"></td>
             <td class="bd-t-dt bd-r-s bd-l-dt"></td>
           </tr>
           <tr style="height:33.5px">
-            <td class="bd-t-dt bd-l-s center">平成xx</td>
-            <td class="bd-t-dt bd-l-dt center">4</td>
-            <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4">○○大学 △△学部 □□学科 入学</td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.educational_yearfrom2 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.educational_monthfrom2 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4"><%= @user_devise.school2 %> 入学</td>
             <td></td>
             <td class="bd-t-dt bd-l-s center"></td>
             <td class="bd-t-dt bd-l-dt center"></td>
             <td class="bd-t-dt bd-r-s bd-l-dt"></td>
           </tr>
           <tr style="height:33.5px">
-            <td class="bd-t-dt bd-l-s center">平成xx</td>
-            <td class="bd-t-dt bd-l-dt center">3</td>
-            <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4">○○大学 △△学部 □□学科 卒業</td>
+            <td class="bd-t-dt bd-l-s center"><%= @user_devise.educational_yearto2 %></td>
+            <td class="bd-t-dt bd-l-dt center"><%= @user_devise.educational_monthto2 %></td>
+            <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4"><%= @user_devise.school2 %> 卒業</td>
             <td></td>
             <td class="bd-t-dt bd-l-s center"></td>
             <td class="bd-t-dt bd-l-dt center"></td>
@@ -261,7 +260,7 @@
             <td class="bd-t-dt bd-l-dt center">12</td>
             <td class="bd-t-dt bd-r-s bd-l-dt" colspan="4">○○株式会社 退職</td>
             <td></td>
-            <td class="bd-t-s bd-r-s bd-b-s bd-l-s" colspan="3" rowspan="3">特に希望する事項はありません。</td>
+            <td class="bd-t-s bd-r-s bd-b-s bd-l-s" colspan="3" rowspan="3"><%= @hope %></td>
           </tr>
           <tr style="height:33.5px">
             <td class="bd-t-dt bd-l-s center">平成xx</td>
