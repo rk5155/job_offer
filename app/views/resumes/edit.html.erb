@@ -82,14 +82,17 @@
                 </tbody>
             </table>
 
-            <table class="p-table u-mb20">
+            <table class="p-table p-table__company p-table__company--first u-mb20">
                 <tbody>
 
                     <tr>
                         <th class="p-table--white">経験企業（１）</th>
-                        <td>
-                            <button class="c-btn--blue">追加する</button>
-                            <button class="c-btn--blue">削除する</button>
+                        <td class="p-table__company--add">
+                            
+                                <span class="c-btn--blue c-btn__add u-block__inline">追加する</span>
+                            
+                                
+                                
                         </td>
                     </tr>
 
@@ -114,42 +117,35 @@
                     <tr>
                         <th>雇用形態</th>
                         <td>
-                            <%= f.select :status1, {'正社員': "契約社員", 'アルバイト・パート': "業務委託"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %><br><br>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th>経験社数</th>
-                        <td>
-                            <%= f.text_field :experience %>社をこれまで経験
+                            <%= f.select :status1, {'選択してください': nil, '正社員': "正社員", 'アルバイト・パート': "アルバイト・パート"}, { class: 'form-control' , required: true } %><br><br>
                         </td>
                     </tr>
 
                     <tr>
                         <th>業種</th>
                         <td>
-                            <%= f.select :industry1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+                            <%= f.select :industry1, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
                         </td>
                     </tr>
 
                     <tr>
                         <th>資本金</th>
                         <td>
-                            <%= f.select :capital1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+                            <%= f.select :capital1, {'選択してください': nil, '100': 100, '200': 200}, { class: 'form-control' , required: true } %>
                         </td>
                     </tr>
 
                     <tr>
                         <th>従業員数</th>
                         <td>
-                            <%= f.select :number_of_employees1, {'1': 1, '2': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+                            <%= f.select :number_of_employees1, {'選択してください': nil, '1': 1, '2': 2}, { class: 'form-control' , required: true } %>
                         </td>
                     </tr>
 
                     <tr>
                         <th>最終ポジション</th>
                         <td>
-                            <%= f.select :final_position1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+                            <%= f.select :final_position1, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
                         </td>
                     </tr>
 
@@ -169,6 +165,173 @@
 
                 </tbody>
             </table>
+
+            <% if !@resume.company_name2.nil? && !@resume.company_name2.empty? %>
+              <table class="p-table p-table__company u-mb20">
+                <tbody>
+
+                    <tr>
+                        <th class="p-table--white">経験企業（２）</th>
+                        <td>
+                            <span class="c-btn--blue c-btn__add u-block__inline">追加する</span>
+                            <span class="c-btn--blue c-btn__remove u-block__inline">削除する</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>社名</th>
+                        <td>
+                            <%= f.text_field :company_name2, class: "p-table__input--long" %>
+                        </td>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>在職期間</th>
+                        <td>
+                            <%= f.text_field :period_year_from2, class: "p-table__input--short" %>年
+                            <%= f.text_field :period_month_from2, class: "p-table__input--short" %>月　〜
+                            <%= f.text_field :period_year_to2, class: "p-table__input--short" %>年
+                            <%= f.text_field :period_month_to2, class: "p-table__input--short" %>月<br><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>雇用形態</th>
+                        <td>
+                            <%= f.select :status2, {'選択してください': nil, '正社員': "正社員", 'アルバイト・パート': "アルバイト・パート"}, { class: 'form-control' , required: true } %><br><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>業種</th>
+                        <td>
+                            <%= f.select :industry2, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>資本金</th>
+                        <td>
+                            <%= f.select :capital2, {'選択してください': nil, '100': 100, '200': 200}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>従業員数</th>
+                        <td>
+                            <%= f.select :number_of_employees2, {'選択してください': nil, '2': 2, '2': 2}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>最終ポジション</th>
+                        <td>
+                            <%= f.select :final_position2, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>職務内容</th>
+                        <td>
+                            <%= f.text_area :job_description2 %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>退職理由</th>
+                        <td>
+                            <%= f.text_area :reason_retirement2 %>
+                        </td>
+                    </tr>
+
+                </tbody>
+              </table>
+            <% end %>
+
+
+            <% if !@resume.company_name3.nil? && !@resume.company_name3.empty? %>
+              <table class="p-table p-table__company u-mb20">
+                <tbody>
+
+                    <tr>
+                        <th class="p-table--white">経験企業（３）</th>
+                        <td>
+                            <span class="c-btn--blue c-btn__add u-block__inline">追加する</span>
+                            <span class="c-btn--blue c-btn__remove u-block__inline">削除する</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>社名</th>
+                        <td>
+                            <%= f.text_field :company_name3, class: "p-table__input--long" %>
+                        </td>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>在職期間</th>
+                        <td>
+                            <%= f.text_field :period_year_from3, class: "p-table__input--short" %>年
+                            <%= f.text_field :period_month_from3, class: "p-table__input--short" %>月　〜
+                            <%= f.text_field :period_year_to3, class: "p-table__input--short" %>年
+                            <%= f.text_field :period_month_to3, class: "p-table__input--short" %>月<br><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>雇用形態</th>
+                        <td>
+                            <%= f.select :status3, {'選択してください': nil, '正社員': "正社員", 'アルバイト・パート': "アルバイト・パート"}, { class: 'form-control' , required: true } %><br><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>業種</th>
+                        <td>
+                            <%= f.select :industry3, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>資本金</th>
+                        <td>
+                            <%= f.select :capital3, {'選択してください': nil, '100': 100, '200': 200}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>従業員数</th>
+                        <td>
+                            <%= f.select :number_of_employees3, {'選択してください': nil, '2': 2, '2': 2}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>最終ポジション</th>
+                        <td>
+                            <%= f.select :final_position3, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>職務内容</th>
+                        <td>
+                            <%= f.text_area :job_description3 %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>退職理由</th>
+                        <td>
+                            <%= f.text_area :reason_retirement3 %>
+                        </td>
+                    </tr>
+
+                </tbody>
+              </table>
+            <% end %>
 
 
             <table class="p-table u-mb20">

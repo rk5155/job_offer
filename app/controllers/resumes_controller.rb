@@ -80,6 +80,9 @@ def resume_params
                                    :company_name2, :period_year_from2, :period_month_from2, :period_year_to2,
                                   :period_month_to2, :status2, :employment_status2, :industry2, :capital2, :number_of_employees2, :final_position2, :job_description2, :reason_retirement2,
                                    :qualification2, :qualification_year2, :qualification_month2,
+                                   :company_name3, :period_year_from3, :period_month_from3, :period_year_to3,
+                                  :period_month_to3, :status3, :employment_status3, :industry3, :capital3, :number_of_employees3, :final_position3, :job_description3, :reason_retirement3,
+                                   :qualification3, :qualification_year3, :qualification_month3,
                                    :language, :pr, :motivation, :hope, :user_devise_id)
 end
 end
