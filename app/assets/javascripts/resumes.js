@@ -12,14 +12,12 @@ document.addEventListener("turbolinks:load", function() {
     }
 
     $('.p-table__company .c-btn__add').click(function() {
-
-        
-        
         
         let copyCompany = $(this).parent().parent().parent().parent().clone(true);
         let numberText = copyCompany.find(".p-table--white").text();
+        // 追加ボタンを押下したときの .p-table__company を変数に代入
+        let oya = $(this).parent().parent().parent().parent()
     
-        console.log(numberText);
 
         copyCompany.find(".c-btn__add").after(`<span class="c-btn--blue c-btn__remove u-block__inline">削除する</span>`)
 
@@ -32,6 +30,7 @@ document.addEventListener("turbolinks:load", function() {
         $(this).next().css("display", "none")
         copyCompany.find(".c-btn__add").css("display", "inline-block")
 
+        // name属性とidを書き換える
         function nameIdChange(ele, from, to) {
             let name = $(ele).attr('name');
             let id = $(ele).attr('id');
@@ -96,9 +95,10 @@ document.addEventListener("turbolinks:load", function() {
 
 
 
+        // 追加するをクリックした後に、削除するを押した時
         $('.p-table__company .c-btn__remove').click(function() {
             $(this).parent().parent().parent().parent().remove();
-            $(".c-btn__add").css("display", "inline-block")
+            oya.find(".c-btn__add").css("display", "inline-block");
             $(".c-btn__remove").css("display", "inline-block")
 
         })
@@ -108,6 +108,7 @@ document.addEventListener("turbolinks:load", function() {
     })
 
 
+    // 追加するをクリックする前に、削除するを押した時
     $('.p-table__company .c-btn__remove').click(function() {
         $(this).parent().parent().parent().parent().find("input").each((i, ele) => {
             $(ele).val("");
