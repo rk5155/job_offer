@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211007021413) do
+ActiveRecord::Schema.define(version: 20211011060554) do
 
   create_table "applies", force: :cascade do |t|
     t.string "name"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20211007021413) do
     t.integer "period_month_from1"
     t.integer "period_year_to1"
     t.integer "period_month_to1"
-    t.boolean "status1"
+    t.string "status1"
     t.string "employment_status1"
     t.string "industry1"
     t.integer "capital1"
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 20211007021413) do
     t.integer "period_month_from2"
     t.integer "period_year_to2"
     t.integer "period_month_to2"
-    t.boolean "status2"
+    t.string "status2"
     t.string "employment_status2"
     t.string "industry2"
     t.integer "capital2"
@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 20211007021413) do
     t.integer "period_month_from3"
     t.integer "period_year_to3"
     t.integer "period_month_to3"
-    t.boolean "status3"
+    t.string "status3"
     t.string "employment_status3"
     t.string "industry3"
     t.integer "capital3"
