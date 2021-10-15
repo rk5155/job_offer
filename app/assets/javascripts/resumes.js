@@ -21,6 +21,18 @@ document.addEventListener("turbolinks:load", function() {
 
         copyCompany.find(".c-btn__add").after(`<span class="c-btn--blue c-btn__remove u-block__inline">削除する</span>`)
 
+
+        // コピー元の値をリセット
+        copyCompany.find("input").each((i, ele) => {
+            $(ele).val("");
+        });
+        copyCompany.find("textarea").each((i, ele) => {
+            $(ele).val("");
+        });
+        copyCompany.find("select").each((i, ele) => {
+            $(ele).val("");
+        });
+
         copyCompany.find(".c-btn__remove").each((i, ele) => {
             if (i > 0) {
                 $(ele).remove();
