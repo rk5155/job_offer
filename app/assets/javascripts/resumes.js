@@ -1,148 +1,90 @@
 //= require jquery
 
 document.addEventListener("turbolinks:load", function() {
+    let checkLength = $('.check').length;
 
-    let companyNum = $(".p-table__company").length
-    console.log(companyNum);
+    $(".check").each((i, ele) => {
+        let parent = $(ele).parent().parent().parent().parent();
+        i += 1
+        let companyName = $(ele).attr("value");
 
-    
-    
-    if (companyNum > 1) {
-        $(".p-table__company--first").find(".c-btn__add").css("display", "none")
+        // 社名が存在すれば表示
+        if (companyName) {
+            parent.css("display", "table");
+        }
+
+        // 社名が存在するかつ、最後のテーブルでない
+        if (companyName && i != checkLength) {
+            console.log(999);
+            parent.find(".c-btn__add").css("display", "none");
+            parent.find(".c-btn__remove").css("display", "none");
+        }
+
+        // 社名が存在するかつ、最後から2番目かつ、最後のテーブルでない
+        if (companyName && i == (checkLength - 1) && i != checkLength) {
+            console.log(98888);
+            parent.find(".c-btn__add").css("display", "inline-block");
+            parent.find(".c-btn__remove").css("display", "inline-block");
+        }
+
+        // 社名が存在するかつ、最後のテーブルだったら　
+        if (companyName && i == checkLength) {
+            parent.prev().find(".c-btn__add").css("display", "none");
+            parent.prev().find(".c-btn__remove").css("display", "none");
+        }
+
+    })
+
+    // 表示されている経験企業が一つだったら、追加するボタンを表示
+    companyCount = 0
+    $(".p-table__company").each((i, ele) => {
+        let style = $(ele).css("display")
+        
+
+        if (style == "table") {
+            companyCount += 1
+        }
+    })
+    if (companyCount == 1) {
+        $(".p-table__company--first .c-btn__add").css("display", "inline-block");
     }
 
+
+    // 追加するボタンを押下したとき
     $('.p-table__company .c-btn__add').click(function() {
+        let parent = $(this).parent().parent().parent().parent();
         
-        let copyCompany = $(this).parent().parent().parent().parent().clone(true);
-        let numberText = copyCompany.find(".p-table--white").text();
-        // 追加ボタンを押下したときの .p-table__company を変数に代入
-        let oya = $(this).parent().parent().parent().parent()
-    
-
-        copyCompany.find(".c-btn__add").after(`<span class="c-btn--blue c-btn__remove u-block__inline">削除する</span>`)
-
-
-        // コピー元の値をリセット
-        copyCompany.find("input").each((i, ele) => {
-            $(ele).val("");
-        });
-        copyCompany.find("textarea").each((i, ele) => {
-            $(ele).val("");
-        });
-        copyCompany.find("select").each((i, ele) => {
-            $(ele).val("");
-        });
-
-        copyCompany.find(".c-btn__remove").each((i, ele) => {
-            if (i > 0) {
-                $(ele).remove();
-            }
-        })
-
-        $(this).next().css("display", "none")
-        copyCompany.find(".c-btn__add").css("display", "inline-block")
-
-        // name属性とidを書き換える
-        function nameIdChange(ele, from, to) {
-            let name = $(ele).attr('name');
-            let id = $(ele).attr('id');
-
-            if ( name.indexOf(from) != -1) {
-                
-                name = name.replace(from, to)
-                id = id.replace(from, to)
-
-                $(ele).attr('name', name)
-                $(ele).attr('id', id)
-            }
-            // $(ele).attr("value", "");
-            
-        };
-
-
-        if (numberText === "経験企業（１）") {
-            copyCompany.find(".p-table--white").text("経験企業（２）");
-            
-            copyCompany.find("input").each((i, ele) => {
-                nameIdChange(ele, "1", "2")
-            });
-
-            copyCompany.find("select").each((i, ele) => {
-                nameIdChange(ele, "1", "2")
-            });
-
-            copyCompany.find("textarea").each((i, ele) => {
-                nameIdChange(ele, "1", "2")
-            });
-
-            $(this).parent().parent().parent().parent().after(copyCompany)
-
-        } else if (numberText === "経験企業（２）") {
-            copyCompany.find(".p-table--white").text("経験企業（３）");
-            
-            copyCompany.find("input").each((i, ele) => {
-                nameIdChange(ele, "2", "3")
-            });
-
-            copyCompany.find("select").each((i, ele) => {
-                nameIdChange(ele, "2", "3")
-            });
-
-            copyCompany.find("textarea").each((i, ele) => {
-                nameIdChange(ele, "2", "3")
-            });
-
-            copyCompany.find(".c-btn__add").remove()
-
-            $(this).parent().parent().parent().parent().after(copyCompany)
-        }
-
-
-
-
-        // $(".c-btn__add").css("display", "inline-block")
-        $(this).css("display", "none")
-
-        
-
-
-
-        // 追加するをクリックした後に、削除するを押した時
-        $('.p-table__company .c-btn__remove').click(function() {
-            $(this).parent().parent().parent().parent().remove();
-            oya.find(".c-btn__add").css("display", "inline-block");
-            $(".c-btn__remove").css("display", "inline-block")
-
-        })
-        
+        parent.next().css("display", "table");
+        $(this).css("display", "none");
+        $(this).next().css("display", "none");
 
         
     })
 
-
-    // 追加するをクリックする前に、削除するを押した時
+    // 削除するボタンを押下したとき
     $('.p-table__company .c-btn__remove').click(function() {
-        $(this).parent().parent().parent().parent().find("input").each((i, ele) => {
+        let parent = $(this).parent().parent().parent().parent();
+
+        // 削除したらvalueをリセット
+        parent.find("input").each((i, ele) => {
             $(ele).val("");
         });
-
-        $(this).parent().parent().parent().parent().find("textarea").each((i, ele) => {
+        parent.find("textarea").each((i, ele) => {
             $(ele).val("");
         });
+        parent.find("select").each((i, ele) => {
+            $(ele).val("");
+        });
+        
 
-        $(this).parent().parent().parent().parent().css("display", "none")
+        parent.prev().find(".c-btn__add").css("display", "inline-block");
+        parent.prev().find(".c-btn__remove").css("display", "inline-block");
 
-        let companyNum = $('.p-table__company').length;
-        console.log(companyNum);
+        parent.css("display", "none");
+        
 
-        if (companyNum === 2) {
-            $(".c-btn__add").css("display", "inline-block")
-        }
+        
+    });
 
-    })
-
-    
-
-    
-})
+});
 

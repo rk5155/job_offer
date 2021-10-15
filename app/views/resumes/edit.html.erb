@@ -99,7 +99,7 @@
                     <tr>
                         <th>社名</th>
                         <td>
-                            <%= f.text_field :company_name1, class: "p-table__input--long" %>
+                            <%= f.text_field :company_name1, class: "p-table__input--long check" %>
                         </td>
                         </td>
                     </tr>
@@ -166,8 +166,8 @@
                 </tbody>
             </table>
 
-            <% if !@resume.company_name2.nil? && !@resume.company_name2.empty? %>
-              <table class="p-table p-table__company u-mb20">
+            
+            <table class="p-table p-table__company u-mb20 u-none--weak">
                 <tbody>
 
                     <tr>
@@ -181,7 +181,7 @@
                     <tr>
                         <th>社名</th>
                         <td>
-                            <%= f.text_field :company_name2, class: "p-table__input--long" %>
+                            <%= f.text_field :company_name2, class: "p-table__input--long check" %>
                         </td>
                         </td>
                     </tr>
@@ -246,18 +246,18 @@
                     </tr>
 
                 </tbody>
-              </table>
-            <% end %>
+            </table>
+            
 
 
-            <% if !@resume.company_name3.nil? && !@resume.company_name3.empty? %>
-              <table class="p-table p-table__company u-mb20">
+            
+            <table class="p-table p-table__company u-mb20 u-none--weak">
                 <tbody>
 
                     <tr>
                         <th class="p-table--white">経験企業（３）</th>
                         <td>
-                            <span class="c-btn--blue c-btn__add u-block__inline">追加する</span>
+                            <%# <span class="c-btn--blue c-btn__add u-block__inline">追加する</span> %>
                             <span class="c-btn--blue c-btn__remove u-block__inline">削除する</span>
                         </td>
                     </tr>
@@ -265,7 +265,7 @@
                     <tr>
                         <th>社名</th>
                         <td>
-                            <%= f.text_field :company_name3, class: "p-table__input--long" %>
+                            <%= f.text_field :company_name3, class: "p-table__input--long check" %>
                         </td>
                         </td>
                     </tr>
@@ -330,8 +330,8 @@
                     </tr>
 
                 </tbody>
-              </table>
-            <% end %>
+            </table>
+            
 
 
             <table class="p-table u-mb20">
