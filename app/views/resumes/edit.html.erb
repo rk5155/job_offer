@@ -89,7 +89,7 @@
                         <th class="p-table--white">経験企業（１）</th>
                         <td class="p-table__company--add">
                             
-                                <span class="c-btn--blue c-btn__add u-block__inline">追加する</span>
+                                <span class="c-btn--blue c-btn__add">追加する</span>
                             
                                 
                                 
@@ -99,7 +99,7 @@
                     <tr>
                         <th>社名</th>
                         <td>
-                            <%= f.text_field :company_name1, class: "p-table__input--long check" %>
+                            <%= f.text_field :company_name1, class: "p-table__input--long check-company" %>
                         </td>
                         </td>
                     </tr>
@@ -173,15 +173,15 @@
                     <tr>
                         <th class="p-table--white">経験企業（２）</th>
                         <td>
-                            <span class="c-btn--blue c-btn__add u-block__inline">追加する</span>
-                            <span class="c-btn--blue c-btn__remove u-block__inline">削除する</span>
+                            <span class="c-btn--blue c-btn__add">追加する</span>
+                            <span class="c-btn--blue c-btn__remove">削除する</span>
                         </td>
                     </tr>
 
                     <tr>
                         <th>社名</th>
                         <td>
-                            <%= f.text_field :company_name2, class: "p-table__input--long check" %>
+                            <%= f.text_field :company_name2, class: "p-table__input--long check-company" %>
                         </td>
                         </td>
                     </tr>
@@ -257,15 +257,15 @@
                     <tr>
                         <th class="p-table--white">経験企業（３）</th>
                         <td>
-                            <%# <span class="c-btn--blue c-btn__add u-block__inline">追加する</span> %>
-                            <span class="c-btn--blue c-btn__remove u-block__inline">削除する</span>
+                            <%# <span class="c-btn--blue c-btn__add">追加する</span> %>
+                            <span class="c-btn--blue c-btn__remove">削除する</span>
                         </td>
                     </tr>
 
                     <tr>
                         <th>社名</th>
                         <td>
-                            <%= f.text_field :company_name3, class: "p-table__input--long check" %>
+                            <%= f.text_field :company_name3, class: "p-table__input--long check-company" %>
                         </td>
                         </td>
                     </tr>
@@ -334,21 +334,21 @@
             
 
 
-            <table class="p-table u-mb20">
+            <table class="p-table p-table__qualification p-table__qualification--first u-mb20">
                 <tbody>
 
                     <tr>
-                        <th class="p-table--white">資格・スキル</th>
+                        <th class="p-table--white">資格・スキル（１）</th>
                         <td>
-                            <button class="c-btn--blue">追加する</button>
+                            <span class="c-btn--blue c-btn__add">追加する</span>
                         </td>
                     </tr>
 
                     <tr>
                         <th>保有資格</th>
                         <td>
-                            <%= f.select :qualification1, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
-                            <%= f.text_field :qualification_year1, class: "p-table__input--short" %>年
+                            <%= f.select :qualification1, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                            <%= f.text_field :qualification_year1, class: "p-table__input--short check-qualification" %>年
                             <%= f.text_field :qualification_month1, class: "p-table__input--short" %>月取得<br>
                         </td>
                     </tr>
@@ -356,7 +356,126 @@
                     <tr>
                         <th>語学スキル</th>
                         <td>
-                            <%= f.select :language, {'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { include_blank: '言語を選択'}, { class: 'form-control' , required: true } %>
+                            <%= f.select :language, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <table class="p-table p-table__qualification u-mb20 u-none--weak">
+                <tbody>
+
+                    <tr>
+                        <th class="p-table--white">資格・スキル（２）</th>
+                        <td>
+                            <span class="c-btn--blue c-btn__add">追加する</span>
+                            <span class="c-btn--blue c-btn__remove">削除する</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>保有資格</th>
+                        <td>
+                            <%= f.select :qualification2, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                            <%= f.text_field :qualification_year2, class: "p-table__input--short check-qualification" %>年
+                            <%= f.text_field :qualification_month2, class: "p-table__input--short" %>月取得<br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>語学スキル</th>
+                        <td>
+                            <%= f.select :language2, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <table class="p-table p-table__qualification u-mb20 u-none--weak">
+                <tbody>
+
+                    <tr>
+                        <th class="p-table--white">資格・スキル（３）</th>
+                        <td>
+                            <span class="c-btn--blue c-btn__add">追加する</span>
+                            <span class="c-btn--blue c-btn__remove">削除する</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>保有資格</th>
+                        <td>
+                            <%= f.select :qualification3, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                            <%= f.text_field :qualification_year3, class: "p-table__input--short check-qualification" %>年
+                            <%= f.text_field :qualification_month3, class: "p-table__input--short" %>月取得<br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>語学スキル</th>
+                        <td>
+                            <%= f.select :language3, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <table class="p-table p-table__qualification u-mb20 u-none--weak">
+                <tbody>
+
+                    <tr>
+                        <th class="p-table--white">資格・スキル（４）</th>
+                        <td>
+                            <span class="c-btn--blue c-btn__add">追加する</span>
+                            <span class="c-btn--blue c-btn__remove">削除する</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>保有資格</th>
+                        <td>
+                            <%= f.select :qualification4, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                            <%= f.text_field :qualification_year4, class: "p-table__input--short check-qualification" %>年
+                            <%= f.text_field :qualification_month4, class: "p-table__input--short" %>月取得<br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>語学スキル</th>
+                        <td>
+                            <%= f.select :language4, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <table class="p-table p-table__qualification u-mb20 u-none--weak">
+                <tbody>
+
+                    <tr>
+                        <th class="p-table--white">資格・スキル（５）</th>
+                        <td>
+                            <span class="c-btn--blue c-btn__remove">削除する</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>保有資格</th>
+                        <td>
+                            <%= f.select :qualification5, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
+                            <%= f.text_field :qualification_year5, class: "p-table__input--short check-qualification" %>年
+                            <%= f.text_field :qualification_month5, class: "p-table__input--short" %>月取得<br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>語学スキル</th>
+                        <td>
+                            <%= f.select :language5, {'選択してください': nil, 'aaaaaa': "aaaaaa", 'bbbbb': "bbbbb"}, { class: 'form-control' , required: true } %>
                         </td>
                     </tr>
 
