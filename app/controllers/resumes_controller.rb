@@ -62,7 +62,7 @@ def show
     @resume = Resume.find(params[:id])
     if @resume.update_attributes(resume_params)
       flash[:success] = "編集しました。"
-      redirect_to @resume
+      redirect_to mypage_user_devises_path
     else
       render 'edit'
     end
