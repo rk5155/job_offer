@@ -38,7 +38,31 @@ document.addEventListener("turbolinks:load", function() {
     }
     check(".check-company")
     check(".check-qualification")
+
     
+    // 表示されているテーブルの数をチェック
+    let count = 0
+    $(".p-table__qualification").each((i, ele) => {
+        console.log($(ele).css("display"));
+        i += 1
+
+        if ($(ele).css("display") == "table") {
+            count += 1
+        }
+    })
+    // 表示されているテーブルの最後以外の追加するボタンと削除ボタンをnoneする
+    $(".p-table__qualification").each((i, ele) => {
+        i += 1
+        if (i != count) {
+            $(ele).find(".c-btn__add").css("display", "none");
+            $(ele).find(".c-btn__remove").css("display", "none");
+        }
+        // 表示されているテーブルの最後になったら処理を抜ける
+        if (count == i) {
+            return false;
+        }
+    })
+
 
     function tableOne(selecter) {
         // 表示されているtableが一つだったら、追加するボタンを表示
