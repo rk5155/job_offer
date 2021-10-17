@@ -29,12 +29,53 @@ end
 
 def show
   @resume = Resume.where(user_devise_id: current_user_devise.id)
-  @user_devise_id
-  @hope
   
   @resume.each do |ele|
     @user_devise_id = ele.user_devise_id
     @hope = ele.hope
+
+    @company_name1 = ele.company_name1
+    @period_year_from1 = ele.period_year_from1
+    @period_month_from1 = ele.period_month_from1
+    @period_year_to1 = ele.period_year_to1
+    @period_month_to1 = ele.period_month_to1
+
+    @company_name2 = ele.company_name2
+    @period_year_from2 = ele.period_year_from2
+    @period_month_from2 = ele.period_month_from2
+    @period_year_to2 = ele.period_year_to2
+    @period_month_to2 = ele.period_month_to2
+
+    @company_name3 = ele.company_name3
+    @period_year_from3 = ele.period_year_from3
+    @period_month_from3 = ele.period_month_from3
+    @period_year_to3 = ele.period_year_to3
+    @period_month_to3 = ele.period_month_to3
+
+    @qualification1 = ele.qualification1
+    @qualification_year1 = ele.qualification_year1
+    @qualification_month1 = ele.qualification_month1
+
+    @qualification2= ele.qualification2
+    @qualification_year2 = ele.qualification_year2
+    @qualification_month2 = ele.qualification_month2
+
+    @qualification3 = ele.qualification3
+    @qualification_year3 = ele.qualification_year3
+    @qualification_month3 = ele.qualification_month3
+
+    @qualification4 = ele.qualification4
+    @qualification_year4 = ele.qualification_year4
+    @qualification_month4 = ele.qualification_month4
+
+    @qualification5 = ele.qualification5
+    @qualification_year5 = ele.qualification_year5
+    @qualification_month5 = ele.qualification_month5
+
+    @updated_at_year = ele.updated_at.year
+    @updated_at_month = ele.updated_at.month
+    @updated_at_day = ele.updated_at.day
+
   end
 
   @user_devise = UserDevise.find(@user_devise_id)
@@ -80,6 +121,11 @@ def resume_params
                                    :company_name2, :period_year_from2, :period_month_from2, :period_year_to2,
                                   :period_month_to2, :status2, :employment_status2, :industry2, :capital2, :number_of_employees2, :final_position2, :job_description2, :reason_retirement2,
                                    :qualification2, :qualification_year2, :qualification_month2,
+                                   :company_name3, :period_year_from3, :period_month_from3, :period_year_to3,
+                                  :period_month_to3, :status3, :employment_status3, :industry3, :capital3, :number_of_employees3, :final_position3, :job_description3, :reason_retirement3,
+                                   :qualification3, :qualification_year3, :qualification_month3,
+                                   :qualification4, :qualification_year4, :qualification_month4,
+                                   :qualification5, :qualification_year5, :qualification_month5,
                                    :language, :language2, :language3, :language4, :language5,
                                    :pr, :motivation, :hope, :user_devise_id)
 end
