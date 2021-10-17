@@ -19,8 +19,17 @@
     <div class="p-users">
         <div class="p-users__left">
             <ul>
-                <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=会員情報">会員情報</a></li>
-                <li class="p-users__tab p-users__tab--active"><%= link_to "WEB履歴書", new_resume_path %></li>
+            <% @current_user_count = Resume.where(user_devise_id: current_user_devise.id).length
+               @resume = Resume.find_by(user_devise_id: current_user_devise.id) %>
+
+                <li class="p-users__tab p-users__tab--active"><a href="/user_devises/<%= current_user_devise.id %>?name=会員情報">会員情報</a></li>
+                
+                <% if @current_user_count > 0 %>
+                  <li class="p-users__tab" style="padding: 0;"><a href="/resumes/<%= @resume.id %>/edit">WEB履歴書</a></li>
+                <% else %>
+                  <li class="p-users__tab" style="padding: 0;"><%= link_to "WEB履歴書", new_resume_path %></li>
+                <% end %>
+
                 <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=条件設定">条件設定</a></li>
                 <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=スカウト利用設定">スカウト利用設定</a></li>
                 <li class="p-users__tab"><a href="/user_devises/<%= current_user_devise.id %>?name=転職支援サービス">転職支援サービス</a></li>

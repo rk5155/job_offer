@@ -24,6 +24,11 @@ document.addEventListener("turbolinks:load", function() {
     $(".p-users__tab:nth-child(1)").removeClass("p-users__tab--active")
   }
 
+  if (params == "?name=プロフィール変更" || params == "?name=アカウント情報変更") {
+    $(".p-users__tab:nth-child(2)").removeClass("p-users__tab--active")
+    $(".p-users__tab:nth-child(1)").addClass("p-users__tab--active")
+  }
+
   $(".p-users__tab").each((i, ele) => {
     if (tabText === $(ele).text()) {
       $(ele).addClass("p-users__tab--active");
