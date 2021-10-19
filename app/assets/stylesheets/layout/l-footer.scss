@@ -2,8 +2,31 @@
 
 .l-footer {
     background-color: $mainColor;
-    height: 400px;
     width: 100%;
     position: absolute;
     bottom: 0;
+    font-size: 13px;
+    padding: 10px 0;
+    
+    .l-footer__wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 960px;
+        margin: 0 auto;
+        p {
+            color: #ffffff;
+        }
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        li {
+            border-right: 1px solid #ffffff;
+            padding: 0 6px;
+            &:last-child {
+                border: none;
+            }
+        }
+    }
 }

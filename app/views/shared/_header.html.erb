@@ -8,8 +8,7 @@
         <div>
             <a href="/"><img src="" alt=""></a>
             <ul>
-                <li><a href="">サイトマップ</a></li>
-                <li><a href="">ヘルプ</a></li>
+                <li><a href="#">履歴</a></li>
                 <% if user_devise_signed_in? %>
                     <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
                     <li><%= link_to 'アカウント削除', edit_user_devise_registration_path %></li>
