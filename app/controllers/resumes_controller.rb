@@ -17,7 +17,7 @@ class ResumesController < ApplicationController
       if @resume.save
         # 保存の成功をここで扱う。
         flash[:success] = "登録完了しました"
-        redirect_to(root_url)
+        render 'edit'
       else
           render 'new'
       end
