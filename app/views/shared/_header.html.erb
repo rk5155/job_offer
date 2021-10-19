@@ -12,7 +12,7 @@
                 <li><a href="">ヘルプ</a></li>
                 <% if user_devise_signed_in? %>
                     <li><%= link_to 'ログアウト', destroy_user_devise_session_path, method: :delete %></li>
-                    <li><%= link_to 'プロフィール変更', edit_user_devise_registration_path %></li>
+                    <li><%= link_to 'アカウント削除', edit_user_devise_registration_path %></li>
                     <li><a href="/user_devises/<%= current_user_devise.id %>">マイページ</a></li>
                     <li style="color: white;"><%= current_user_devise.email %></li>
                 <% elsif company_signed_in? %>
